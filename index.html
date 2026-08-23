@@ -36,12 +36,12 @@
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       </button>
-      <button class="nav-login-btn hide-mobile" data-login-open aria-label="Client Portal Login">
+      <a href="login.html" class="nav-login-btn hide-mobile" aria-label="Sign In">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        <span>Login</span>
-      </button>
-      <a href="contact.html" class="btn btn-primary hide-mobile">
-        Free Site Visit
+        <span>Sign In</span>
+      </a>
+      <a href="signup.html" class="btn btn-primary hide-mobile">
+        Sign Up
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" data-menu-open>
@@ -63,149 +63,178 @@
   <a href="contact.html">Contact</a>
   <div style="display:flex; gap:10px; margin-top:12px; width:100%;">
     <button class="rtl-toggle" data-rtl-toggle style="flex:1;"><span>RTL</span></button>
-    <button class="nav-login-btn" data-login-open style="flex:1; justify-content:center;">
+    <a href="login.html" class="nav-login-btn" style="flex:1; justify-content:center; text-decoration:none;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      <span>Login</span>
-    </button>
+      <span>Sign In</span>
+    </a>
   </div>
-  <a href="contact.html" class="btn btn-primary btn-block" style="margin-top:10px;">Free Site Visit</a>
+  <a href="signup.html" class="btn btn-primary btn-block" style="margin-top:10px;">Sign Up</a>
 </div>
 
 <main>
 
-  <!-- ============ HERO ============ -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <span class="eyebrow">Painting • Restoration • Waterproofing</span>
-        <h1 class="hero-heading">Make your<br>space look<br><span class="accent-line">new again.</span></h1>
-        <p class="hero-text">Professional interior painting, exterior finishing and waterproofing designed to protect your property and deliver a lasting finish.</p>
+  <!-- ============ HERO (DUAL LIGHT/DARK THEME BACKGROUNDS + GLASSMORPHIC CARD) ============ -->
+  <section class="hero is-loaded">
+    <!-- Dark Mode Hero Background Image -->
+    <div class="hero-bg hero-bg-dark" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=85" alt="Luxury modern villa exterior at dusk with architectural lighting">
+    </div>
+
+    <!-- Light Mode Hero Background Image -->
+    <div class="hero-bg hero-bg-light" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85" alt="Sunlit luxury contemporary home with clean exterior painting">
+    </div>
+
+    <div class="container hero-inner-wrap">
+      <div class="hero-card reveal is-visible">
+        <span class="eyebrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Painting • Restoration • Waterproofing Contractor
+        </span>
+        <h1 class="hero-heading">Make your space look <span class="accent-line">new again.</span></h1>
+        <p class="hero-text">Gujarat's trusted painting and certified waterproofing contractor. From surface moisture diagnostics to flawless architectural finishes, we protect your property for years to come.</p>
+        
         <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">
+          <a href="#site-visit" class="btn btn-primary">
             Book Free Site Visit
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a href="#projects" class="btn btn-ghost">Explore Our Work</a>
+          <a href="#projects" class="btn btn-ghost">
+            Explore Our Work
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
+          </a>
         </div>
-        <div class="hero-panel only-mobile">
-          <div class="hero-panel-item">
-            <span class="hero-panel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
-            <div class="hero-panel-text"><b>Interior</b><span>Beautiful finishes</span></div>
-          </div>
-          <div class="hero-panel-item">
-            <span class="hero-panel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></span>
-            <div class="hero-panel-text"><b>Exterior</b><span>Weather protection</span></div>
-          </div>
-          <div class="hero-panel-item">
-            <span class="hero-panel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></span>
-            <div class="hero-panel-text"><b>Waterproofing</b><span>Long lasting solution</span></div>
-          </div>
-        </div>
-      </div>
 
-      <div class="hero-media">
-        <span class="hero-corner-mark tl"></span>
-        <span class="hero-corner-mark br"></span>
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80" alt="Freshly painted modern residential property with warm exterior lighting">
-        <div class="hero-panel hide-mobile">
-          <div class="hero-panel-item">
-            <span class="hero-panel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
-            <div class="hero-panel-text"><b>Interior</b><span>Beautiful finishes</span></div>
+        <div class="hero-badges-row">
+          <div class="hero-badge-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>10-Year Warranty</span>
           </div>
-          <div class="hero-panel-item">
-            <span class="hero-panel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></span>
-            <div class="hero-panel-text"><b>Exterior</b><span>Weather protection</span></div>
+          <div class="hero-badge-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            <span>Certified Applicators</span>
           </div>
-          <div class="hero-panel-item">
-            <span class="hero-panel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></span>
-            <div class="hero-panel-text"><b>Waterproofing</b><span>Long lasting solution</span></div>
+          <div class="hero-badge-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <span>Free Laser Estimation</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ TRUST SNAPSHOT ============ -->
+  <!-- ============ TRUST STATS BAND ============ -->
   <section class="stats-band">
     <div class="container">
       <div class="stats-grid">
         <div class="stat-item reveal">
-          <div class="stat-value"><span class="accent" data-count="750" data-suffix="+">0</span></div>
+          <div class="stat-value"><span class="accent" data-count="750" data-suffix="+">750+</span></div>
           <div class="stat-label">Projects Completed</div>
         </div>
         <div class="stat-item reveal">
-          <div class="stat-value"><span data-count="12" data-suffix="+">0</span></div>
+          <div class="stat-value"><span data-count="12" data-suffix="+">12+</span></div>
           <div class="stat-label">Years Experience</div>
         </div>
         <div class="stat-item reveal">
-          <div class="stat-value"><span data-count="45" data-suffix="+">0</span></div>
+          <div class="stat-value"><span data-count="45" data-suffix="+">45+</span></div>
           <div class="stat-label">Trained Applicators</div>
         </div>
         <div class="stat-item reveal">
-          <div class="stat-value"><span class="accent" data-count="980" data-suffix="+">0</span></div>
+          <div class="stat-value"><span class="accent" data-count="980" data-suffix="+">980+</span></div>
           <div class="stat-label">Site Inspections</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ SERVICES ============ -->
+  <!-- ============ WHAT WE DO / 4 EQUAL CORE SERVICES ============ -->
   <section class="section" id="services">
     <div class="container">
       <div class="section-head reveal">
         <div>
           <span class="eyebrow">What we do</span>
           <h2 class="section-heading">Our core services</h2>
-          <p class="section-sub">From surface preparation to the final coat, every project starts with understanding the condition of the property.</p>
+          <p class="section-sub">From comprehensive surface preparation to the final coat, every project starts with understanding the unique substrate condition of your property.</p>
         </div>
-        <a href="#services" class="btn btn-ghost hide-mobile">
+        <a href="services.html" class="btn btn-ghost hide-mobile">
           View All Services
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
 
-      <div class="services-grid">
-        <article class="service-card is-tall reveal">
-          <div class="service-media">
-            <span class="service-index"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 3l2 2-9 9-4 1 1-4 9-9Z"/><path d="M13 7l4 4"/></svg></span>
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=80" alt="Modern premium living room interior with fresh paint finish">
+      <div class="services-grid-4">
+        <!-- Service 01: Interior -->
+        <article class="service-card-4 reveal">
+          <div class="service-media-4">
+            <span class="service-badge-num">01</span>
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Modern luxury living room interior with smooth designer finish">
           </div>
-          <div class="service-body">
-            <span class="service-tag">Service 01</span>
-            <h3 class="service-title">Interior Painting</h3>
-            <p>Clean, precise interior finishes designed around your space, lighting and preferred atmosphere.</p>
-            <a href="#contact" class="service-link">Explore Interior Painting
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <div class="service-body-4">
+            <div>
+              <span class="service-tag">Interior Painting</span>
+              <h3 class="service-title">Interior Painting</h3>
+              <p>Clean, low-VOC interior finishes, accent texture walls, and dustless sanding tailored to your space and lighting.</p>
+            </div>
+            <a href="services.html#interior" class="service-link">
+              <span>Explore Interior</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
           </div>
         </article>
 
-        <article class="service-card reveal">
-          <div class="service-media">
-            <span class="service-index"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></span>
-            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=900&q=80" alt="Modern exterior property with clean painted facade">
+        <!-- Service 02: Exterior -->
+        <article class="service-card-4 reveal">
+          <div class="service-media-4">
+            <span class="service-badge-num">02</span>
+            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80" alt="Modern exterior villa with weather-resistant coating">
           </div>
-          <div class="service-body">
-            <span class="service-tag">Service 02</span>
-            <h3 class="service-title">Exterior Painting</h3>
-            <p>Weather-ready exterior coatings with proper preparation for a cleaner, longer-lasting finish.</p>
-            <a href="#contact" class="service-link">Explore Exterior Painting
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <div class="service-body-4">
+            <div>
+              <span class="service-tag">Exterior Coating</span>
+              <h3 class="service-title">Exterior Painting</h3>
+              <p>Weather-ready elastomeric coatings with anti-fungal silicones designed to withstand extreme Gujarat heat and monsoon rains.</p>
+            </div>
+            <a href="services.html#exterior" class="service-link">
+              <span>Explore Exterior</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
           </div>
         </article>
 
-        <article class="service-card reveal">
-          <div class="service-media">
-            <span class="service-index"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></span>
-            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80" alt="Worker applying waterproofing coating on a terrace surface">
+        <!-- Service 03: Waterproofing -->
+        <article class="service-card-4 reveal">
+          <div class="service-media-4">
+            <span class="service-badge-num">03</span>
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Worker applying waterproof polymer membrane on roof terrace">
           </div>
-          <div class="service-body">
-            <span class="service-tag">Service 03</span>
-            <h3 class="service-title">Waterproofing</h3>
-            <p>Targeted waterproofing solutions designed to address seepage, dampness and exposed surfaces.</p>
-            <a href="#contact" class="service-link">Explore Waterproofing
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <div class="service-body-4">
+            <div>
+              <span class="service-tag">Waterproofing</span>
+              <h3 class="service-title">Waterproofing</h3>
+              <p>Certified terrace membranes, damp-proof course injection, and basement seepage barriers with 10-year warranty coverage.</p>
+            </div>
+            <a href="services.html#waterproofing" class="service-link">
+              <span>Explore Waterproofing</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Service 04: Restoration & Prep -->
+        <article class="service-card-4 reveal">
+          <div class="service-media-4">
+            <span class="service-badge-num">04</span>
+            <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80" alt="Professional painter repairing surface plaster and filling cracks">
+          </div>
+          <div class="service-body-4">
+            <div>
+              <span class="service-tag">Surface Restoration</span>
+              <h3 class="service-title">Surface Restoration</h3>
+              <p>Micro-crack injection, efflorescence chemical neutralization, and high-adhesion primer coats before painting begins.</p>
+            </div>
+            <a href="services.html#restoration" class="service-link">
+              <span>Explore Restoration</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
           </div>
         </article>
@@ -213,7 +242,102 @@
     </div>
   </section>
 
-  <!-- ============ BEFORE / AFTER ============ -->
+  <!-- ============ NEW SECTION: 5-POINT FREE SITE VISIT & INSPECTION TRIAL ============ -->
+  <section class="inspection-section" id="site-visit">
+    <div class="container">
+      <div class="inspection-grid">
+        <div class="reveal">
+          <span class="eyebrow">Painting &amp; Waterproofing Contractor Protocol</span>
+          <h2 class="section-heading">Book a Free 5-Point On-Site Property Inspection</h2>
+          <p class="section-sub">Don't guess what your walls need. Our certified site engineers inspect your walls with digital diagnostic tools, measure exact areas, and give you a transparent itemized BOQ with zero obligation.</p>
+
+          <div class="inspection-steps-list">
+            <!-- Step 1 -->
+            <div class="inspection-step-card">
+              <div class="step-badge-icon">01</div>
+              <div class="step-card-content">
+                <h4>Digital Moisture &amp; Seepage Scan</h4>
+                <p>Pinpoint hidden moisture pockets behind plaster and bathroom tiles before paint is applied.</p>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="inspection-step-card">
+              <div class="step-badge-icon">02</div>
+              <div class="step-card-content">
+                <h4>Substrate &amp; Plaster Adhesion Check</h4>
+                <p>Evaluate efflorescence, chalking, and hollow plaster patches to prevent early paint peeling.</p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="inspection-step-card">
+              <div class="step-badge-icon">03</div>
+              <div class="step-card-content">
+                <h4>Exterior Crack &amp; Terrace Slope Analysis</h4>
+                <p>Categorize superficial vs structural cracks and inspect terrace water pooling slopes.</p>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="inspection-step-card">
+              <div class="step-badge-icon">04</div>
+              <div class="step-card-content">
+                <h4>Laser Area Measurement</h4>
+                <p>High-precision digital laser measurement ensuring 100% transparent sq.ft calculation.</p>
+              </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="inspection-step-card">
+              <div class="step-badge-icon">05</div>
+              <div class="step-card-content">
+                <h4>Customized System Spec &amp; Digital Shade Trial</h4>
+                <p>Receive an itemized quotation with recommended chemical systems and digital shade previews.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Inspection Preview Card -->
+        <div class="inspection-preview-card reveal">
+          <div class="inspection-preview-media">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80" alt="Site engineer holding digital measurement device on construction property">
+            <div class="inspection-badge-floating">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Takes Only 45 Mins</span>
+            </div>
+          </div>
+          <div class="inspection-preview-body">
+            <div class="inspection-check-list">
+              <div class="check-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Zero Cost / No Obligation</span>
+              </div>
+              <div class="check-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Digital Moisture Report</span>
+              </div>
+              <div class="check-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>On-Site Color Swatches</span>
+              </div>
+              <div class="check-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Same-Day Digital Quote</span>
+              </div>
+            </div>
+            <a href="#quote-form" class="btn btn-primary btn-block">
+              Claim Your Free Site Assessment
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BEFORE / AFTER PROJECT SHOWCASE ============ -->
   <section class="section section-tight" id="projects" style="background:var(--surface-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
     <div class="container">
       <div class="reveal" style="margin-bottom:56px;">
@@ -239,15 +363,15 @@
         <div class="ba-info reveal">
           <span class="spec-tag">Featured Transformation</span>
           <h3 class="ba-info-title">Modern Villa</h3>
-          <div class="ba-info-sub">Exterior Repainting</div>
+          <div class="ba-info-sub">Exterior Repainting &amp; Parapet Waterproofing</div>
           <div class="ba-specs">
-            <div class="ba-spec-row"><span>Location</span><span>Ahmedabad</span></div>
+            <div class="ba-spec-row"><span>Location</span><span>Ahmedabad, Gujarat</span></div>
             <div class="ba-spec-row"><span>Area</span><span>2,450 sq.ft</span></div>
             <div class="ba-spec-row"><span>Duration</span><span>6 Days</span></div>
-            <div class="ba-spec-row"><span>System</span><span>Exterior Primer + Weatherproof Finish</span></div>
+            <div class="ba-spec-row"><span>System</span><span>Exterior Primer + Elastomeric Weatherproof Finish</span></div>
           </div>
-          <a href="#contact" class="btn btn-primary btn-block">
-            View Project
+          <a href="projects.html" class="btn btn-primary btn-block">
+            View Project Case Study
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -255,13 +379,13 @@
     </div>
   </section>
 
-  <!-- ============ MATERIALS ============ -->
+  <!-- ============ MATERIALS & BRAND PARTNERS ============ -->
   <section class="section">
     <div class="container">
       <div class="reveal" style="margin-bottom:48px; max-width:60ch;">
         <span class="eyebrow">Behind the finish</span>
-        <h2 class="section-heading">Quality starts with what goes under the finish.</h2>
-        <p class="section-sub" style="max-width:60ch;">The final appearance of any surface depends on what happens before the top coat — preparation, primer and protection matter as much as the paint itself.</p>
+        <h2 class="section-heading">Quality starts with certified material chemistry.</h2>
+        <p class="section-sub" style="max-width:60ch;">The durability of any coating depends on what happens underneath the top coat — proper surface preparation, primers and waterproofing matter as much as the paint.</p>
       </div>
 
       <div class="materials-grid reveal">
@@ -293,167 +417,223 @@
       </div>
 
       <div class="brand-strip reveal">
-        <span class="brand-strip-label">Material partners we trust</span>
+        <span class="brand-strip-label">Certified Application Partners</span>
         <div class="brand-strip-logos">
           <span>Asian Paints</span>
           <span>Berger</span>
           <span>Dulux</span>
           <span>Dr. Fixit</span>
+          <span>Fosroc</span>
+          <span>Nerolac</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ PROCESS ============ -->
+  <!-- ============ PROCESS / HOW WE WORK ============ -->
   <section class="section" id="about" style="background:var(--surface-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
     <div class="container">
       <div class="reveal" style="margin-bottom:60px; max-width:56ch;">
         <span class="eyebrow">How we work</span>
-        <h2 class="section-heading">From first inspection to final finish.</h2>
+        <h2 class="section-heading">From initial inspection to final handover.</h2>
       </div>
 
       <div class="process-track">
         <div class="process-step" data-index="0">
           <div class="process-num">01</div>
           <div class="process-title">Site Inspection</div>
-          <p class="process-text">We understand your requirements and inspect the property.</p>
+          <p class="process-text">We evaluate your requirements and scan wall moisture levels on-site.</p>
         </div>
         <div class="process-step" data-index="1">
           <div class="process-num">02</div>
           <div class="process-title">Surface Assessment</div>
-          <p class="process-text">We evaluate the surface condition and identify the right treatment.</p>
+          <p class="process-text">We test substrate adhesion, identify cracks, and specify the treatment.</p>
         </div>
         <div class="process-step" data-index="2">
           <div class="process-num">03</div>
-          <div class="process-title">Material Recommendation</div>
-          <p class="process-text">We recommend the best products and systems for lasting results.</p>
+          <div class="process-title">Material Specification</div>
+          <p class="process-text">We recommend genuine branded paints and waterproofing polymers.</p>
         </div>
         <div class="process-step" data-index="3">
           <div class="process-num">04</div>
           <div class="process-title">Application</div>
-          <p class="process-text">Our trained team applies each coat with precision and care.</p>
+          <p class="process-text">Our certified master applicators execute multi-coat finishing with care.</p>
         </div>
         <div class="process-step" data-index="4">
           <div class="process-num">05</div>
-          <div class="process-title">Final Inspection</div>
-          <p class="process-text">We inspect every detail before handing over a perfect finish.</p>
+          <div class="process-title">Final Inspection &amp; Warranty</div>
+          <p class="process-text">We conduct a quality audit and issue your digital PaintPro warranty card.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ FEATURED PROJECT ============ -->
-  <section class="section" id="gallery">
+  <!-- ============ INTERACTIVE FREE SITE VISIT & QUOTE REQUEST FORM ============ -->
+  <section class="home-quote-section" id="quote-form">
     <div class="container">
-      <div class="featured-grid">
-        <div class="featured-media reveal">
-          <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80" alt="Luxury bungalow interior living room with refined low-sheen paint finish">
-        </div>
-        <div class="reveal">
-          <span class="featured-tag">Featured Project</span>
-          <h3 class="featured-title">Luxury Bungalow</h3>
-          <div class="featured-sub">Interior Painting</div>
-
-          <div class="featured-specs">
-            <div class="featured-spec"><b>Project Type</b><span>Residential</span></div>
-            <div class="featured-spec"><b>Area</b><span>3,200 sq.ft</span></div>
-            <div class="featured-spec"><b>Duration</b><span>8 Days</span></div>
-            <div class="featured-spec"><b>Treatment</b><span>Surface prep + primer + interior finish</span></div>
+      <div class="quote-box-wrap reveal">
+        <div>
+          <span class="eyebrow">Instant Booking</span>
+          <h2 class="section-heading" style="margin-bottom:16px;">Request a Free Site Visit &amp; Quote</h2>
+          <p class="section-sub" style="margin-bottom:28px;">Leave your contact details and our senior site engineer will call you within 2 hours to confirm your preferred inspection slot.</p>
+          
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <div>
+                <strong style="color:var(--text); display:block;">Call Direct:</strong>
+                <a href="tel:+919876543210">+91 98765 43210</a>
+              </div>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <div>
+                <strong style="color:var(--text); display:block;">Email Enquiry:</strong>
+                <a href="mailto:info@paintpro.com">info@paintpro.com</a>
+              </div>
+            </div>
           </div>
-
-          <div class="featured-result">"Clean, consistent walls with a refined low-sheen finish."</div>
-
-          <a href="#contact" class="btn btn-ghost">
-            View Project
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ============ CTA ============ -->
-  <section class="cta-section reveal" id="contact">
-    <img class="cta-bg" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=70" alt="">
-    <div class="cta-grid">
-      <div>
-        <h2 class="cta-heading">Your walls have a story. Let's give them a better finish.</h2>
-        <p class="cta-copy">Tell us what your property needs. We'll inspect the surface, understand the problem and recommend the right treatment.</p>
-        <div class="cta-indicators">
-          <span class="cta-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Interior Painting</span>
-          <span class="cta-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Exterior Painting</span>
-          <span class="cta-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg>Waterproofing</span>
-        </div>
-      </div>
-      <div class="cta-side">
-        <a href="tel:+919876543210" class="btn btn-primary">
-          Request Free Site Visit
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <div class="cta-note">No obligation • Site assessment • Transparent quotation</div>
+        <!-- Form -->
+        <form id="homeInspectionForm" class="quote-form-grid" onsubmit="event.preventDefault(); alert('Thank you! Your inspection request has been booked. A PaintPro engineer will contact you shortly.'); this.reset();">
+          <div class="form-group-custom">
+            <label for="leadName">Your Name</label>
+            <input type="text" id="leadName" class="form-control-custom" placeholder="e.g. Anand Patel" required>
+          </div>
+          <div class="form-group-custom">
+            <label for="leadPhone">Phone Number</label>
+            <input type="tel" id="leadPhone" class="form-control-custom" placeholder="+91 98765 43210" required>
+          </div>
+          <div class="form-group-custom">
+            <label for="leadService">Service Required</label>
+            <select id="leadService" class="form-control-custom" required>
+              <option value="interior">Interior Painting</option>
+              <option value="exterior">Exterior Painting</option>
+              <option value="waterproofing">Terrace / Roof Waterproofing</option>
+              <option value="dampness">Dampness &amp; Crack Treatment</option>
+              <option value="full">Complete Home Makeover</option>
+            </select>
+          </div>
+          <div class="form-group-custom">
+            <label for="leadCity">Property Location / City</label>
+            <select id="leadCity" class="form-control-custom" required>
+              <option value="ahmedabad">Ahmedabad</option>
+              <option value="gandhinagar">Gandhinagar</option>
+              <option value="vadodara">Vadodara</option>
+              <option value="surat">Surat</option>
+              <option value="rajkot">Rajkot</option>
+            </select>
+          </div>
+          <div class="form-group-custom form-full">
+            <label for="leadArea">Approximate Area / Property Notes (Optional)</label>
+            <input type="text" id="leadArea" class="form-control-custom" placeholder="e.g. 3BHK Villa, 2,200 sq.ft, terrace seepage issue">
+          </div>
+          <div class="form-full" style="margin-top:8px;">
+            <button type="submit" class="btn btn-primary btn-block">
+              Submit Free Inspection Request
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </section>
 
 </main>
 
-<!-- ============ FOOTER ============ -->
-<footer class="footer">
+<!-- ============ HIGH-CONTRAST SITE FOOTER ============ -->
+<footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
+      <!-- Col 1: Brand & Badge -->
       <div class="footer-brand">
-        <span class="brand-name">Paint<em>Pro</em></span>
-        <span class="brand-tag">Painting &amp; Waterproofing</span>
-        <p class="footer-desc">Professional painting and waterproofing services with a focus on quality, durability and client satisfaction.</p>
+        <a href="index.html" class="brand" style="display:inline-block; margin-bottom:12px;">
+          <span class="brand-name">Paint<em>Pro</em></span>
+          <span class="brand-tag">Painting &amp; Waterproofing</span>
+        </a>
+        <div class="footer-contractor-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Licensed Gujarat Contractor</span>
+        </div>
+        <p class="footer-desc">Professional architectural painting, damp diagnosis and certified polymer waterproofing across Gujarat since 2011.</p>
         <div class="footer-social">
-          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v6h3v-6h3l1-3h-4v-2c0-.5.5-1 1-1Z"/></svg></a>
-          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="6" width="19" height="12" rx="3"/><path d="M11 9.5l4 2.5-4 2.5v-5Z"/></svg></a>
-          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.3-3.9A7.9 7.9 0 1 1 8.9 19L4 20Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://wa.me/919876543210" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
         </div>
       </div>
 
+      <!-- Col 2: Navigation -->
       <div class="footer-col">
         <h4>Navigation</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="home-2.html">Home 2</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="projects.html">Project</a></li>
-          <li><a href="maintenance.html">Maintenance</a></li>
-          <li><a href="services.html">Service</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="projects.html">Projects Showcase</a></li>
+          <li><a href="maintenance.html">Maintenance Care</a></li>
+          <li><a href="services.html">Services &amp; Pricing</a></li>
+          <li><a href="index.html#projects">Gallery &amp; Results</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
 
+      <!-- Col 3: Solutions -->
       <div class="footer-col">
-        <h4>Services</h4>
+        <h4>Contractor Solutions</h4>
         <ul>
-          <li><a href="services.html">Interior Painting</a></li>
-          <li><a href="services.html">Exterior Painting</a></li>
-          <li><a href="services.html">Waterproofing</a></li>
-          <li><a href="services.html">Surface Preparation</a></li>
-          <li><a href="services.html">Restoration</a></li>
+          <li><a href="services.html#interior">Interior Luxury Emulsion</a></li>
+          <li><a href="services.html#exterior">Exterior WeatherShield</a></li>
+          <li><a href="services.html#waterproofing">Terrace Membrane Waterproofing</a></li>
+          <li><a href="services.html#damp">Basement Seepage Injection</a></li>
+          <li><a href="services.html#prep">Efflorescence &amp; Crack Treatment</a></li>
+          <li><a href="contact.html">Color &amp; Shade Consultation</a></li>
         </ul>
       </div>
 
+      <!-- Col 4: Contact & Studio Info -->
       <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v4a2 2 0 0 1-2 2c-8.3-.5-15-7.2-15.5-15.5A2 2 0 0 1 4 4Z"/></svg><span>+91 98765 43210</span></li>
-          <li class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>info@paintpro.com</span></li>
-          <li class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-6.4 7-12a7 7 0 1 0-14 0c0 5.6 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Ahmedabad &amp; Gandhinagar, Gujarat</span></li>
-          <li class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Mon – Sat: 9:00 AM – 7:00 PM</span></li>
-        </ul>
+        <h4>Direct Contact</h4>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div>
+            <strong style="color:#ffffff; display:block;">Call Hotline:</strong>
+            <a href="tel:+919876543210">+91 98765 43210</a>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <div>
+            <strong style="color:#ffffff; display:block;">Direct Email:</strong>
+            <a href="mailto:info@paintpro.com">info@paintpro.com</a>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <strong style="color:#ffffff; display:block;">Studio Headquarters:</strong>
+            <span>Bodakdev, S.G. Highway, Ahmedabad 380054</span>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div>
+            <strong style="color:#ffffff; display:block;">Working Hours:</strong>
+            <span>Mon – Sat: 8:30 AM – 7:30 PM</span>
+          </div>
+        </div>
       </div>
     </div>
 
+    <!-- Bottom Bar -->
     <div class="footer-bottom">
-      <span>© 2026 PaintPro. All rights reserved.</span>
+      <span>© 2026 PaintPro Coatings &amp; Waterproofing Ltd. (ISO 9001:2015 Certified). All rights reserved.</span>
       <div class="footer-bottom-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms &amp; Conditions</a>
+        <a href="about.html">Privacy Policy</a>
+        <a href="about.html">Terms &amp; Conditions</a>
+        <a href="login.html">Sign In</a>
+        <a href="signup.html">Create Account</a>
       </div>
     </div>
   </div>

@@ -1181,17 +1181,129 @@
     });
   }
 
+  /* ---------------- Standalone Auth Pages (login.html & signup.html) ---------------- */
+  function initAuthPages() {
+    // Password show/hide toggle
+    document.querySelectorAll('[data-pwd-toggle]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var wrapper = btn.closest('.auth-input-wrapper');
+        if (!wrapper) return;
+        var input = wrapper.querySelector('input');
+        if (!input) return;
+        var isPassword = input.type === 'password';
+        input.type = isPassword ? 'text' : 'password';
+        var icon = btn.querySelector('svg');
+        if (icon) {
+          icon.innerHTML = isPassword
+            ? '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>'
+            : '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+        }
+      });
+    });
+
+    // Demo Account Autofill
+    var demoBtn = document.querySelector('[data-demo-autofill]');
+    if (demoBtn) {
+      demoBtn.addEventListener('click', function () {
+        var emailInput = document.getElementById('loginEmail');
+        var pwdInput = document.getElementById('loginPassword');
+        if (emailInput) emailInput.value = 'client@paintpro.com';
+        if (pwdInput) pwdInput.value = 'PaintPro#2026';
+        showToast('Demo credentials filled successfully!');
+      });
+    }
+
+    // Social Auth Buttons simulation
+    document.querySelectorAll('[data-social-auth]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var provider = btn.getAttribute('data-social-auth') || 'Third-Party';
+        var originalText = btn.innerHTML;
+        btn.innerHTML = 'Connecting...';
+        btn.disabled = true;
+        setTimeout(function () {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+          showToast('Connecting via ' + provider + '... Authentication successful! Redirecting...');
+          setTimeout(function () {
+            window.location.href = 'index.html';
+          }, 1200);
+        }, 800);
+      });
+    });
+
+    // Sign In form submission
+    var loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+      loginForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var submitBtn = loginForm.querySelector('button[type="submit"]');
+        if (submitBtn) {
+          var orig = submitBtn.innerHTML;
+          submitBtn.innerHTML = 'Authenticating...';
+          submitBtn.disabled = true;
+          setTimeout(function () {
+            submitBtn.innerHTML = orig;
+            submitBtn.disabled = false;
+            showToast('Sign in successful! Welcome back.');
+            setTimeout(function () {
+              window.location.href = 'index.html';
+            }, 1000);
+          }, 900);
+        }
+      });
+    }
+
+    // Sign Up form submission
+    var signupForm = document.getElementById('signupForm');
+    if (signupForm) {
+      signupForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var submitBtn = signupForm.querySelector('button[type="submit"]');
+        if (submitBtn) {
+          var orig = submitBtn.innerHTML;
+          submitBtn.innerHTML = 'Creating Account...';
+          submitBtn.disabled = true;
+          setTimeout(function () {
+            submitBtn.innerHTML = orig;
+            submitBtn.disabled = false;
+            showToast('Account created successfully! Redirecting to Portal...');
+            setTimeout(function () {
+              window.location.href = 'index.html';
+            }, 1100);
+          }, 1000);
+        }
+      });
+    }
+
+    function showToast(message) {
+      var toast = document.querySelector('.auth-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'auth-toast';
+        document.body.appendChild(toast);
+      }
+      toast.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;color:var(--accent);"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg><span>' + message + '</span>';
+      toast.classList.add('is-active');
+      setTimeout(function () {
+        toast.classList.remove('is-active');
+      }, 3500);
+    }
+  }
+
   /* ---------------- Initialize ---------------- */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
       initRTL();
       initAuthModal();
       initContactPage();
+      initAuthPages();
     });
   } else {
     initRTL();
     initAuthModal();
     initContactPage();
+    initAuthPages();
   }
 })();
+
 
