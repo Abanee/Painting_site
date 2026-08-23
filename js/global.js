@@ -27,7 +27,30 @@
     });
   }
 
-  /* ---------------- Sticky nav ---------------- */
+  /* ---------------- RTL ---------------- */
+  function initRTL() {
+    var stored = null;
+    try { stored = localStorage.getItem("paintpro-dir"); } catch (e) {}
+    if (stored) {
+      document.documentElement.setAttribute("dir", stored);
+    }
+    var currentDir = document.documentElement.getAttribute("dir") || "ltr";
+    var rtlToggles = document.querySelectorAll("[data-rtl-toggle]");
+    rtlToggles.forEach(function (btn) {
+      btn.classList.toggle("is-active", currentDir === "rtl");
+      btn.addEventListener("click", function () {
+        var dir = document.documentElement.getAttribute("dir") || "ltr";
+        var next = dir === "rtl" ? "ltr" : "rtl";
+        document.documentElement.setAttribute("dir", next);
+        rtlToggles.forEach(function (b) {
+          b.classList.toggle("is-active", next === "rtl");
+        });
+        try { localStorage.setItem("paintpro-dir", next); } catch (e) {}
+      });
+    });
+  }
+
+  /* ---------------- Sticky nav & Mobile Drawer ---------------- */
   function initNav() {
     var nav = document.querySelector("[data-nav]");
     if (!nav) return;
@@ -43,29 +66,53 @@
     update();
     window.addEventListener("scroll", update, { passive: true });
 
-    var menuBtn = document.querySelector("[data-menu-open]");
+    var menuToggles = document.querySelectorAll(".menu-toggle, .menu-btn, [data-menu-open]");
     var closeBtn = document.querySelector("[data-menu-close]");
-    var overlay = document.querySelector("[data-nav-overlay]");
-    if (menuBtn && overlay) {
-      menuBtn.addEventListener("click", function () {
-        overlay.classList.add("is-open");
-        document.body.style.overflow = "hidden";
+    var overlay = document.querySelector("#mobilePanel, .mobile-panel, [data-nav-overlay]");
+
+    function toggleMenu(open) {
+      if (!overlay) return;
+      var isOpen = typeof open === "boolean" ? open : !overlay.classList.contains("is-open");
+      overlay.classList.toggle("is-open", isOpen);
+      menuToggles.forEach(function (btn) {
+        btn.classList.toggle("is-open", isOpen);
+        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
       });
+      document.body.style.overflow = isOpen ? "hidden" : "";
     }
-    if (closeBtn && overlay) {
+
+    menuToggles.forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        toggleMenu();
+      });
+    });
+
+    if (closeBtn) {
       closeBtn.addEventListener("click", function () {
-        overlay.classList.remove("is-open");
-        document.body.style.overflow = "";
+        toggleMenu(false);
       });
     }
+
     if (overlay) {
       overlay.querySelectorAll("a").forEach(function (a) {
         a.addEventListener("click", function () {
-          overlay.classList.remove("is-open");
-          document.body.style.overflow = "";
+          toggleMenu(false);
         });
       });
     }
+
+    window.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && overlay && overlay.classList.contains("is-open")) {
+        toggleMenu(false);
+      }
+    });
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 1024 && overlay && overlay.classList.contains("is-open")) {
+        toggleMenu(false);
+      }
+    });
   }
 
   /* ---------------- Before / After sliders ---------------- */
