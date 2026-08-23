@@ -1011,3 +1011,187 @@
     initChecklist();
   });
 })();
+
+/* ==========================================================================
+   PaintPro — RTL Toggle, Auth Modal & Contact Page Enhancement
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  /* ---------------- RTL Mode Controller ---------------- */
+  function initRTL() {
+    var storedRTL = null;
+    try { storedRTL = localStorage.getItem('paintpro-rtl'); } catch (e) {}
+    var isRTL = storedRTL === 'true';
+
+    function setRTL(state) {
+      if (state) {
+        document.documentElement.setAttribute('dir', 'rtl');
+      } else {
+        document.documentElement.removeAttribute('dir');
+      }
+      try { localStorage.setItem('paintpro-rtl', state ? 'true' : 'false'); } catch (e) {}
+
+      document.querySelectorAll('[data-rtl-toggle]').forEach(function (btn) {
+        btn.classList.toggle('is-active', state);
+        btn.setAttribute('aria-pressed', state ? 'true' : 'false');
+        var label = btn.querySelector('span');
+        if (label) {
+          label.textContent = state ? 'LTR' : 'RTL';
+        }
+      });
+    }
+
+    setRTL(isRTL);
+
+    document.querySelectorAll('[data-rtl-toggle]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var current = document.documentElement.getAttribute('dir') === 'rtl';
+        setRTL(!current);
+      });
+    });
+  }
+
+  /* ---------------- Auth / Client Login Modal ---------------- */
+  function initAuthModal() {
+    var modal = document.querySelector('[data-auth-modal]');
+    if (!modal) return;
+
+    var openBtns = document.querySelectorAll('[data-login-open]');
+    var closeBtns = modal.querySelectorAll('[data-modal-close]');
+    var tabs = modal.querySelectorAll('[data-auth-tab]');
+    var form = modal.querySelector('#authForm');
+    var autofillBtn = modal.querySelector('#authAutofill');
+    var successMsg = modal.querySelector('#authSuccessMsg');
+    var emailInput = modal.querySelector('#authEmail');
+    var passInput = modal.querySelector('#authPassword');
+    var submitBtn = modal.querySelector('#authSubmit');
+
+    function openModal() {
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      if (emailInput) setTimeout(function () { emailInput.focus(); }, 100);
+    }
+
+    function closeModal() {
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+      if (successMsg) successMsg.style.display = 'none';
+    }
+
+    openBtns.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        openModal();
+      });
+    });
+
+    closeBtns.forEach(function (btn) {
+      btn.addEventListener('click', closeModal);
+    });
+
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+        closeModal();
+      }
+    });
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        tabs.forEach(function (t) { t.classList.remove('is-active'); });
+        tab.classList.add('is-active');
+        var mode = tab.getAttribute('data-auth-tab');
+        if (submitBtn) {
+          submitBtn.textContent = mode === 'register' ? 'Request Portal Access' : 'Sign In to Portal';
+        }
+      });
+    });
+
+    if (autofillBtn && emailInput && passInput) {
+      autofillBtn.addEventListener('click', function () {
+        emailInput.value = 'client@paintpro.com';
+        passInput.value = 'PaintPro#2026';
+      });
+    }
+
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (submitBtn) {
+          var origText = submitBtn.textContent;
+          submitBtn.textContent = 'Authenticating...';
+          submitBtn.disabled = true;
+
+          setTimeout(function () {
+            submitBtn.textContent = origText;
+            submitBtn.disabled = false;
+            if (successMsg) {
+              successMsg.textContent = 'Welcome back! Redirecting to PaintPro Project Dashboard...';
+              successMsg.style.display = 'block';
+              successMsg.classList.add('is-success');
+            }
+            setTimeout(function () {
+              closeModal();
+            }, 1800);
+          }, 800);
+        }
+      });
+    }
+  }
+
+  /* ---------------- Contact Page Form & FAQ ---------------- */
+  function initContactPage() {
+    var contactForm = document.querySelector('#contactInquiryForm');
+    var successBanner = document.querySelector('#contactSuccessBanner');
+
+    if (contactForm && successBanner) {
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var submitBtn = contactForm.querySelector('button[type="submit"]');
+        if (submitBtn) {
+          var originalContent = submitBtn.innerHTML;
+          submitBtn.innerHTML = 'Sending Details...';
+          submitBtn.disabled = true;
+
+          setTimeout(function () {
+            submitBtn.innerHTML = originalContent;
+            submitBtn.disabled = false;
+            contactForm.reset();
+            successBanner.classList.add('is-visible');
+            successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 900);
+        }
+      });
+    }
+
+    var faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(function (item) {
+      var question = item.querySelector('.faq-question');
+      if (question) {
+        question.addEventListener('click', function () {
+          var isOpen = item.classList.contains('is-open');
+          faqItems.forEach(function (other) { other.classList.remove('is-open'); });
+          if (!isOpen) item.classList.add('is-open');
+        });
+      }
+    });
+  }
+
+  /* ---------------- Initialize ---------------- */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      initRTL();
+      initAuthModal();
+      initContactPage();
+    });
+  } else {
+    initRTL();
+    initAuthModal();
+    initContactPage();
+  }
+})();
+
