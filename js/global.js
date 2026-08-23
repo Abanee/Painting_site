@@ -1290,6 +1290,81 @@
     }
   }
 
+  /* ---------------- Home 2 Hero 3-Image Carousel ---------------- */
+  function initHero2Carousel() {
+    var carousel = document.querySelector('[data-hero2-carousel]');
+    if (!carousel) return;
+
+    var slides = carousel.querySelectorAll('.hero2-carousel-slide');
+    var dots = carousel.querySelectorAll('.hero2-carousel-dot');
+    var prevBtn = carousel.querySelector('[data-carousel-prev]');
+    var nextBtn = carousel.querySelector('[data-carousel-next]');
+    if (!slides.length) return;
+
+    var currentIndex = 0;
+    var timer = null;
+    var duration = 4500;
+
+    function goToSlide(index) {
+      slides[currentIndex].classList.remove('is-active');
+      if (dots[currentIndex]) dots[currentIndex].classList.remove('is-active');
+
+      currentIndex = (index + slides.length) % slides.length;
+
+      slides[currentIndex].classList.add('is-active');
+      if (dots[currentIndex]) dots[currentIndex].classList.add('is-active');
+    }
+
+    function nextSlide() {
+      goToSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(currentIndex - 1);
+    }
+
+    function startAutoSlide() {
+      stopAutoSlide();
+      timer = setInterval(nextSlide, duration);
+    }
+
+    function stopAutoSlide() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        nextSlide();
+        startAutoSlide();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        prevSlide();
+        startAutoSlide();
+      });
+    }
+
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function (e) {
+        e.preventDefault();
+        goToSlide(i);
+        startAutoSlide();
+      });
+    });
+
+    carousel.addEventListener('mouseenter', stopAutoSlide);
+    carousel.addEventListener('mouseleave', startAutoSlide);
+
+    startAutoSlide();
+  }
+
   /* ---------------- Initialize ---------------- */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
@@ -1297,12 +1372,14 @@
       initAuthModal();
       initContactPage();
       initAuthPages();
+      initHero2Carousel();
     });
   } else {
     initRTL();
     initAuthModal();
     initContactPage();
     initAuthPages();
+    initHero2Carousel();
   }
 })();
 
