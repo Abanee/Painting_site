@@ -1089,8 +1089,10 @@ select {
 
 .archive-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 30px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .p-card {
@@ -1102,6 +1104,10 @@ select {
   border-radius: var(--radius-md);
   padding: 16px;
   transition: opacity var(--dur-m) var(--ease), transform var(--dur-m) var(--ease), border-color var(--dur-s) ease;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .p-card:hover {
@@ -1126,9 +1132,10 @@ select {
   border-radius: var(--radius-sm);
   overflow: hidden;
   aspect-ratio: 16/10 !important;
-  height: 340px !important;
-  min-height: 320px;
+  height: auto !important;
+  min-height: 0 !important;
   width: 100% !important;
+  max-width: 100% !important;
   cursor: grab;
   background: #000;
 }
@@ -1138,8 +1145,10 @@ select {
 .p-card[data-size="large"] .p-card-media,
 .p-card[data-size="feature"] .p-card-media {
   aspect-ratio: 16/10 !important;
-  height: 340px !important;
-  min-height: 320px;
+  height: auto !important;
+  min-height: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 .ba-slider {
@@ -12298,14 +12307,15 @@ footer.site-footer {
 
 @media (max-width: 1024px) {
   .archive-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 24px;
   }
 
   .p-card-media {
-    height: 340px !important;
+    height: auto !important;
     aspect-ratio: 16/10 !important;
-    min-height: 320px;
+    min-height: 0 !important;
+    width: 100% !important;
   }
 
   .story {
