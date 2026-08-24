@@ -1125,8 +1125,9 @@ select {
   position: relative;
   border-radius: var(--radius-sm);
   overflow: hidden;
-  aspect-ratio: 16/11 !important;
-  height: 250px !important;
+  aspect-ratio: 16/10 !important;
+  height: 340px !important;
+  min-height: 320px;
   width: 100% !important;
   cursor: grab;
   background: #000;
@@ -1136,8 +1137,9 @@ select {
 .p-card[data-size="wide"] .p-card-media,
 .p-card[data-size="large"] .p-card-media,
 .p-card[data-size="feature"] .p-card-media {
-  aspect-ratio: 16/11 !important;
-  height: 250px !important;
+  aspect-ratio: 16/10 !important;
+  height: 340px !important;
+  min-height: 320px;
 }
 
 .ba-slider {
@@ -12104,9 +12106,26 @@ footer.site-footer {
     gap: 24px;
   }
 
+  .p-card-media {
+    height: 340px !important;
+    aspect-ratio: 16/10 !important;
+    min-height: 320px;
+  }
+
+  .story {
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
   .story-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .story-media {
+    height: 240px !important;
   }
 
   .ba-wrap {

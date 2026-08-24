@@ -650,6 +650,239 @@ window.toggleMobileMenu = function (e, forceClose) {
     goToSlide(0);
   }
 
+  /* ---------------- Maintenance 12-Month Care Calendar ---------------- */
+  function initMaintenanceCalendar() {
+    var calendarRoot = document.querySelector("[data-mnt-calendar]");
+    if (!calendarRoot) return;
+
+    var monthBtns = calendarRoot.querySelectorAll(".mnt-month-btn");
+    var monthLabel = calendarRoot.querySelector("[data-cal-monthlabel]");
+    var titleEl = calendarRoot.querySelector("[data-cal-title]");
+    var captionEl = calendarRoot.querySelector("[data-cal-caption]");
+    var listEl = calendarRoot.querySelector("[data-cal-list]");
+    var tipEl = calendarRoot.querySelector("[data-cal-tip]");
+    var imgEl = calendarRoot.querySelector("[data-cal-img]");
+    var prevBtn = calendarRoot.querySelector("[data-cal-prev]");
+    var nextBtn = calendarRoot.querySelector("[data-cal-next]");
+
+    var monthKeys = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+    var currentIdx = 5;
+
+    var monthData = {
+      jan: {
+        label: "JAN — JANUARY",
+        title: "Post-Winter Exterior Check",
+        caption: "Inspect wall surfaces after winter dry spells.",
+        list: [
+          "Check exterior facade for micro-cracks",
+          "Inspect window perimeter caulking and seals",
+          "Clean dust accumulation off high-touch surfaces",
+          "Check balcony railings and metal trim for oxidation"
+        ],
+        tip: "Early year inspections catch micro-fissures before spring temperature shifts extend them.",
+        img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80&auto=format&fit=crop"
+      },
+      feb: {
+        label: "FEB — FEBRUARY",
+        title: "Pre-Spring Touch-Up & Wash",
+        caption: "Keep interior and exterior surfaces looking vibrant.",
+        list: [
+          "Wipe down high-traffic interior corridors",
+          "Spot-treat any scuffs or shoe marks on skirting",
+          "Check boundary wall plaster for hairline cracks",
+          "Inspect shade structure mountings"
+        ],
+        tip: "Spot-cleaning walls with soft microfiber prevents deep stain penetration.",
+        img: "https://images.unsplash.com/photo-1615873968403-89e068629265?w=900&q=80&auto=format&fit=crop"
+      },
+      mar: {
+        label: "MAR — MARCH",
+        title: "Pre-Summer Thermal Shield Check",
+        caption: "Prepare exterior coatings for intense solar heat.",
+        list: [
+          "Check roof heat-reflective paint coating thickness",
+          "Verify UV protection film integrity on south walls",
+          "Inspect plaster expansion joints for elasticity",
+          "Clear parapet weep holes and solar panel mounts"
+        ],
+        tip: "Heat-reflective roof coatings lower internal air conditioning loads during peak summer.",
+        img: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900&q=80&auto=format&fit=crop"
+      },
+      apr: {
+        label: "APR — APRIL",
+        title: "Summer Heat & UV Protection",
+        caption: "Monitor surfaces under extreme sun exposure.",
+        list: [
+          "Check topcoat color retention on sunny facades",
+          "Inspect sealant flexibility around roof skylights",
+          "Check exterior wooden pergolas & doors for varnish wear",
+          "Verify water tank base waterproofing"
+        ],
+        tip: "Applying a fresh clear UV topcoat onto wooden elements prevents summer sun bleaching.",
+        img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=80&auto=format&fit=crop"
+      },
+      may: {
+        label: "MAY — MAY",
+        title: "Pre-Monsoon Substrate Audit",
+        caption: "Thorough inspection before heavy rainfall begins.",
+        list: [
+          "Inspect terrace drain outlets and downspout gutters",
+          "Check for efflorescence salt deposits on brickwork",
+          "Seal any visible plaster hairline cracks with elastomeric stitch",
+          "Test bathroom floor drain waterproofing perimeter"
+        ],
+        tip: "Fixing small roof cracks before June prevents major ceiling dampness during heavy rains.",
+        img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=900&q=80&auto=format&fit=crop"
+      },
+      jun: {
+        label: "JUN — JUNE",
+        title: "Monsoon Preparation",
+        caption: "A focused check as the season sets in.",
+        list: [
+          "Exterior walls for dampness or peeling",
+          "Terrace drainage and slope",
+          "Balcony edges and joints",
+          "Visible cracks or surface deterioration"
+        ],
+        tip: "Clear drainage, check joints and look for early moisture signs before heavy rains.",
+        img: "https://images.unsplash.com/photo-1646592474103-cfd22d1d9e34?w=900&q=80&auto=format&fit=crop"
+      },
+      jul: {
+        label: "JUL — JULY",
+        title: "Active Rain & Moisture Monitoring",
+        caption: "Track real-time moisture performance during downpours.",
+        list: [
+          "Check interior ceilings under terrace joints for moisture patches",
+          "Monitor external wall moisture absorption rates",
+          "Verify window frame silicone weather-seals",
+          "Inspect basement sump pumps & wall seam dampness"
+        ],
+        tip: "If wet patches appear on interior ceilings, notify PaintPro for quick targeted sealing.",
+        img: "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=900&q=80&auto=format&fit=crop"
+      },
+      aug: {
+        label: "AUG — AUGUST",
+        title: "Mid-Monsoon Leak Prevention",
+        caption: "High-humidity protection and leak containment.",
+        list: [
+          "Inspect rain-facing exterior walls for water seepage",
+          "Check concealed plumbing duct shaft walls",
+          "Ensure clear water runoff on all balcony slopes",
+          "Check anti-fungal paint performance in humid zones"
+        ],
+        tip: "Good cross-ventilation in interior rooms prevents seasonal damp odor and mold.",
+        img: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=900&q=80&auto=format&fit=crop"
+      },
+      sep: {
+        label: "SEP — SEPTEMBER",
+        title: "Post-Monsoon Damage Assessment",
+        caption: "Evaluate property surfaces as rains recede.",
+        list: [
+          "Identify blistering paint or salt blooming on wet walls",
+          "Check exterior plaster for water saturation recovery",
+          "Inspect tile joints on open terraces and balconies",
+          "Clean out organic moss & algae from damp corners"
+        ],
+        tip: "Allow walls to dry thoroughly before applying any touch-up paint coats.",
+        img: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900&q=80&auto=format&fit=crop"
+      },
+      oct: {
+        label: "OCT — OCTOBER",
+        title: "Festive Pre-Season Touch-Up",
+        caption: "Refresh interior & exterior paint finish for celebrations.",
+        list: [
+          "Touch up accent walls & entrance foyer paintwork",
+          "Apply anti-microbial clear coat in dining & kitchen spaces",
+          "Polish decorative wood trim and metal doors",
+          "Pressure-wash exterior stone cladding and paved walkways"
+        ],
+        tip: "A quick festive touch-up coat brings back initial handover brilliance with minimal effort.",
+        img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900&q=80&auto=format&fit=crop"
+      },
+      nov: {
+        label: "NOV — NOVEMBER",
+        title: "Autumn Surface Sealing",
+        caption: "Seal surfaces as humidity drops and dry winds start.",
+        list: [
+          "Apply hydrophobic sealer to exterior brick and stone trim",
+          "Check interior wall corners for micro-movement stress",
+          "Inspect garage floor epoxy for oil or scuff resistance",
+          "Clean light fixtures and ceiling paint moldings"
+        ],
+        tip: "Dry autumn weather is ideal for masonry hydrophobic sealers to absorb deeply.",
+        img: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=900&q=80&auto=format&fit=crop"
+      },
+      dec: {
+        label: "DEC — DECEMBER",
+        title: "Annual Property Health Audit",
+        caption: "End-of-year review of overall property coating durability.",
+        list: [
+          "Conduct complete 360-degree wall health scan",
+          "Review warranty log & schedule annual PaintPro checkup",
+          "Inspect high-wear interior door and cabinet finishes",
+          "Verify all exterior drainage channels remain free of debris"
+        ],
+        tip: "Annual inspection log updates ensure continuous coverage under PaintPro warranty.",
+        img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&q=80&auto=format&fit=crop"
+      }
+    };
+
+    function renderMonth(key) {
+      var data = monthData[key];
+      if (!data) return;
+
+      monthBtns.forEach(function (btn) {
+        if (btn.getAttribute("data-month") === key) {
+          btn.classList.add("is-active");
+        } else {
+          btn.classList.remove("is-active");
+        }
+      });
+
+      if (monthLabel) monthLabel.textContent = data.label;
+      if (titleEl) titleEl.textContent = data.title;
+      if (captionEl) captionEl.textContent = data.caption;
+      if (tipEl) tipEl.textContent = data.tip;
+      if (imgEl) imgEl.src = data.img;
+
+      if (listEl) {
+        listEl.innerHTML = "";
+        data.list.forEach(function (itemText) {
+          var li = document.createElement("li");
+          li.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span>' + itemText + '</span>';
+          listEl.appendChild(li);
+        });
+      }
+    }
+
+    monthBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var key = btn.getAttribute("data-month");
+        var idx = monthKeys.indexOf(key);
+        if (idx !== -1) {
+          currentIdx = idx;
+          renderMonth(monthKeys[currentIdx]);
+        }
+      });
+    });
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        currentIdx = (currentIdx - 1 + monthKeys.length) % monthKeys.length;
+        renderMonth(monthKeys[currentIdx]);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        currentIdx = (currentIdx + 1) % monthKeys.length;
+        renderMonth(monthKeys[currentIdx]);
+      });
+    }
+
+    renderMonth("jun");
+  }
+
   /* ---------------- Run All Initializations ---------------- */
   function runAllInit() {
     initTheme();
@@ -665,6 +898,7 @@ window.toggleMobileMenu = function (e, forceClose) {
     initAuthPages();
     initHero2Carousel();
     initStorySlider();
+    initMaintenanceCalendar();
   }
 
   if (document.readyState === "loading") {
