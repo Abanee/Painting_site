@@ -5705,19 +5705,54 @@ html[data-theme="dark"] .ab-culture{ background: #0D0B09; }
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px 20px;
+  padding: 60px 20px 40px;
+  position: relative;
   background: radial-gradient(circle at 50% 20%, rgba(224, 94, 27, 0.08) 0%, transparent 60%), var(--bg, #0b0f17);
+}
+
+.auth-top-bar {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  left: auto;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.auth-top-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .auth-page-wrap {
+    padding: 20px 16px 30px;
+    justify-content: flex-start;
+  }
+
+  .auth-top-bar {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin-bottom: 16px;
+    justify-content: flex-end;
+  }
 }
 
 .auth-container {
   width: 100%;
-  max-width: 490px;
+  max-width: 540px;
   margin: 0 auto;
   padding: 0 16px;
 }
 
 .auth-container.is-signup {
-  max-width: 520px;
+  max-width: 580px;
 }
 
 .auth-card {
@@ -5913,7 +5948,7 @@ html[data-theme="dark"] .ab-culture{ background: #0D0B09; }
 .auth-input-wrapper input.auth-input {
   width: 100%;
   height: 48px;
-  padding: 0 16px 0 46px !important;
+  padding: 0 16px !important;
   background: var(--bg, #0b0f17);
   border: 1px solid var(--border, rgba(255, 255, 255, 0.12));
   border-radius: 10px;
@@ -5925,9 +5960,13 @@ html[data-theme="dark"] .ab-culture{ background: #0D0B09; }
   box-sizing: border-box;
 }
 
-[dir="rtl"] .auth-input,
-[dir="rtl"] .auth-input-wrapper input.auth-input {
-  padding: 0 46px 0 16px !important;
+.auth-input-wrapper:has(svg.field-icon) input.auth-input {
+  padding-left: 46px !important;
+}
+
+[dir="rtl"] .auth-input-wrapper:has(svg.field-icon) input.auth-input {
+  padding-left: 16px !important;
+  padding-right: 46px !important;
 }
 
 [data-theme="light"] .auth-input,
@@ -5941,6 +5980,17 @@ html[data-theme="dark"] .ab-culture{ background: #0D0B09; }
 .auth-input-wrapper input.auth-input:focus {
   border-color: var(--accent, #e05e1b);
   box-shadow: 0 0 0 3px rgba(224, 94, 27, 0.15);
+}
+
+.auth-input-wrapper:has(.pwd-toggle-btn) input.auth-input {
+  padding-right: 42px !important;
+  padding-left: 16px !important;
+}
+
+[dir="rtl"] .auth-input-wrapper:has(.pwd-toggle-btn) input.auth-input,
+html[dir="rtl"] .auth-input-wrapper:has(.pwd-toggle-btn) input.auth-input {
+  padding-left: 42px !important;
+  padding-right: 16px !important;
 }
 
 .pwd-toggle-btn {
@@ -5957,9 +6007,10 @@ html[data-theme="dark"] .ab-culture{ background: #0D0B09; }
   border-radius: 6px;
 }
 
-[dir="rtl"] .pwd-toggle-btn {
-  right: auto;
-  left: 12px;
+[dir="rtl"] .pwd-toggle-btn,
+html[dir="rtl"] .pwd-toggle-btn {
+  right: auto !important;
+  left: 12px !important;
 }
 
 .pwd-toggle-btn:hover {
@@ -6887,7 +6938,7 @@ footer.site-footer {
 
 /* Gallery Controls & Filter Bar */
 .gallery-controls-bar {
-  padding: 32px 0 20px;
+  padding: 32px var(--gutter, 24px) 20px;
 }
 
 .gallery-controls-grid {
@@ -9573,8 +9624,194 @@ footer.site-footer {
     width: 100% !important;
     justify-self: center !important;
   }
+/* ==========================================================================
+   CONTACT PAGE — SERVICE FOOTPRINT & GOOGLE MAP SECTION
+   ========================================================================== */
+.coverage-section {
+  padding: 80px 0;
+  background: var(--surface-2, rgba(255,255,255,0.02));
+  border-top: 1px solid var(--border, rgba(0,0,0,0.08));
+  border-bottom: 1px solid var(--border, rgba(0,0,0,0.08));
 }
 
+.coverage-head {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  max-width: 680px !important;
+  margin: 0 auto 36px !important;
+}
 
+.coverage-head .eyebrow {
+  justify-content: center !important;
+  margin-bottom: 8px !important;
+}
 
+.coverage-head h3 {
+  font-family: var(--font-display, 'Outfit', sans-serif) !important;
+  font-size: clamp(24px, 2.5vw, 32px) !important;
+  font-weight: 700 !important;
+  color: var(--text, #0f172a) !important;
+  margin: 0 0 10px 0 !important;
+}
 
+[data-theme="dark"] .coverage-head h3 {
+  color: var(--text, #f4f0e8) !important;
+}
+
+.coverage-head p {
+  font-size: 15px !important;
+  color: var(--muted, #64748b) !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+}
+
+[data-theme="dark"] .coverage-head p {
+  color: var(--muted, #aaa59d) !important;
+}
+
+.coverage-chips-wrap {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 14px !important;
+}
+
+.coverage-chip {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 10px 20px !important;
+  border-radius: 999px !important;
+  background: var(--surface, #ffffff) !important;
+  border: 1px solid var(--border, rgba(0, 0, 0, 0.08)) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--text, #0f172a) !important;
+  box-shadow: var(--shadow-sm, 0 4px 12px rgba(0,0,0,0.03)) !important;
+  transition: transform 0.2s ease, border-color 0.2s ease !important;
+}
+
+[data-theme="dark"] .coverage-chip {
+  background: var(--surface, #1b1a18) !important;
+  border-color: var(--border, #36332f) !important;
+  color: var(--text, #f4f0e8) !important;
+}
+
+.coverage-chip:hover {
+  transform: translateY(-2px) !important;
+  border-color: var(--accent, #e05e1b) !important;
+}
+
+.coverage-chip-dot {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background: #2e9e5b !important;
+  display: inline-block !important;
+  box-shadow: 0 0 8px rgba(46, 158, 91, 0.5) !important;
+}
+
+.contact-map-section {
+  padding: 80px 0;
+}
+
+.contact-map-header {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  max-width: 640px !important;
+  margin: 0 auto 36px !important;
+}
+
+.contact-map-header h2 {
+  font-family: var(--font-display, 'Outfit', sans-serif) !important;
+  font-size: clamp(26px, 3vw, 36px) !important;
+  font-weight: 700 !important;
+  color: var(--text, #0f172a) !important;
+  margin: 8px 0 10px 0 !important;
+}
+
+[data-theme="dark"] .contact-map-header h2 {
+  color: var(--text, #f4f0e8) !important;
+}
+
+.contact-map-header p {
+  font-size: 15px !important;
+  color: var(--muted, #64748b) !important;
+}
+
+[data-theme="dark"] .contact-map-header p {
+  color: var(--muted, #aaa59d) !important;
+}
+
+.contact-map-frame {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  border: 1px solid var(--border, rgba(0, 0, 0, 0.08)) !important;
+  box-shadow: var(--shadow-md, 0 12px 32px rgba(0,0,0,0.08)) !important;
+  width: 100% !important;
+}
+
+.contact-map-frame iframe {
+  width: 100% !important;
+  height: 450px !important;
+  display: block !important;
+}
+
+/* ==========================================================================
+   RTL MODE COMPREHENSIVE FIXES FOR AUTH PAGES
+   ========================================================================== */
+html[dir="rtl"] body,
+html[dir="rtl"] .auth-page-wrap {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+html[dir="rtl"] .auth-field label {
+  text-align: right !important;
+  display: block !important;
+}
+
+html[dir="rtl"] .auth-input,
+html[dir="rtl"] .auth-input-wrapper input.auth-input {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+html[dir="rtl"] .pwd-toggle-btn,
+[dir="rtl"] .pwd-toggle-btn {
+  right: auto !important;
+  left: 12px !important;
+}
+
+html[dir="rtl"] .auth-row-between {
+  flex-direction: row-reverse !important;
+}
+
+html[dir="rtl"] .auth-checkbox-label {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  direction: rtl !important;
+}
+
+html[dir="rtl"] .btn-auth-submit svg {
+  transform: scaleX(-1) !important;
+}
+
+html[dir="rtl"] .auth-top-bar {
+  right: auto !important;
+  left: 24px !important;
+  justify-content: flex-start !important;
+}
+
+@media (max-width: 640px) {
+  html[dir="rtl"] .auth-top-bar {
+    right: auto !important;
+    left: 0 !important;
+    justify-content: flex-start !important;
+  }
+}
