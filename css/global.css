@@ -14323,7 +14323,8 @@ footer.site-footer {
 
   .visit-guide-grid,
   .ab-details-grid,
-  .story-grid {
+  .story-grid,
+  .standard-row {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
@@ -14332,9 +14333,48 @@ footer.site-footer {
 
   .visit-guide-grid > *,
   .ab-details-grid > *,
-  .story-grid > * {
+  .story-grid > *,
+  .standard-row > * {
     flex: 0 0 calc(33.333% - 16px) !important;
     max-width: calc(33.333% - 16px) !important;
     box-sizing: border-box !important;
+  }
+
+  .archive-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 28px !important;
+  }
+
+  .archive-grid > .p-card {
+    flex: 0 0 calc(50% - 14px) !important;
+    max-width: calc(50% - 14px) !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* ==========================================================================
+   MOBILE (<= 768px / 360px) MOOD CARD 3 WIDTH & FINAL CTA BOTTOM SPACING FIX
+   ========================================================================== */
+@media (max-width: 768px) {
+  .colour-card:nth-child(3) {
+    grid-column: auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    justify-self: stretch !important;
+  }
+
+  .final-cta {
+    min-height: auto !important;
+    padding-bottom: 30px !important;
+  }
+
+  .final-cta-inner {
+    padding: 60px 0 50px !important;
+  }
+
+  .final-cta-actions {
+    margin-bottom: 20px !important;
   }
 }
