@@ -5426,8 +5426,8 @@ html[data-theme="dark"] .ab-culture{ background: #0D0B09; }
 
 /* Right: Form Card */
 .contact-form-card {
-  background: var(--bg-card, #121824);
-  border: 1px solid var(--border-strong, rgba(255,255,255,0.12));
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 20px 50px rgba(0,0,0,0.3);
