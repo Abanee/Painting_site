@@ -14303,3 +14303,38 @@ footer.site-footer {
 .svc-scope-line {
   display: none !important;
 }
+
+/* ==========================================================================
+   TABLET (<= 1024px) PROCESS TRACK & CARD GRID LEFTOVER ITEMS CENTERING FIX
+   ========================================================================== */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .process-track {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 36px 28px !important;
+  }
+
+  .process-track .process-step {
+    flex: 0 0 calc(33.333% - 20px) !important;
+    max-width: calc(33.333% - 20px) !important;
+    box-sizing: border-box !important;
+  }
+
+  .visit-guide-grid,
+  .ab-details-grid,
+  .story-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 32px 24px !important;
+  }
+
+  .visit-guide-grid > *,
+  .ab-details-grid > *,
+  .story-grid > * {
+    flex: 0 0 calc(33.333% - 16px) !important;
+    max-width: calc(33.333% - 16px) !important;
+    box-sizing: border-box !important;
+  }
+}
