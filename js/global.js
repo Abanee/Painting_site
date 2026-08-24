@@ -137,9 +137,10 @@ window.toggleMobileMenu = function (e, forceClose) {
 
       function setPos(pct) {
         pct = Math.max(0, Math.min(100, pct));
-        afterTarget.style.clipPath = "inset(0 0 0 " + pct + "%)";
-        handle.style.left = pct + "%";
-        if (line) line.style.left = pct + "%";
+        afterTarget.style.setProperty("clip-path", "inset(0 0 0 " + pct + "%)", "important");
+        afterTarget.style.setProperty("-webkit-clip-path", "inset(0 0 0 " + pct + "%)", "important");
+        handle.style.setProperty("left", pct + "%", "important");
+        if (line) line.style.setProperty("left", pct + "%", "important");
         handle.setAttribute("aria-valuenow", Math.round(pct));
         if (rangeInput && parseFloat(rangeInput.value) !== pct) {
           rangeInput.value = pct;
@@ -169,7 +170,6 @@ window.toggleMobileMenu = function (e, forceClose) {
       }
 
       function onDown(e) {
-        if (e.target === rangeInput) return;
         dragging = true;
         root.classList.add("is-dragging");
         setPos(posFromEvent(e));
