@@ -8971,3 +8971,289 @@ footer.site-footer {
   display: none !important;
 }
 
+/* ==========================================================================
+   FEATURED CASE STUDY SLIDER & THUMBNAIL ALIGNMENT FIX (INCREASED HEIGHT)
+   ========================================================================== */
+.case-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1.15fr !important;
+  gap: 44px !important;
+  align-items: stretch !important;
+}
+
+.case-media {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  height: 100% !important;
+}
+
+.case-media .p-card-media {
+  border-radius: var(--radius-md, 16px) !important;
+  overflow: hidden !important;
+  position: relative !important;
+  flex-grow: 1 !important;
+  min-height: 420px !important;
+  height: 420px !important;
+  aspect-ratio: auto !important;
+  box-shadow: var(--shadow-md, 0 12px 32px rgba(0,0,0,0.08)) !important;
+  border: 1px solid var(--border, rgba(0,0,0,0.08)) !important;
+}
+
+.case-media .ba-slider,
+.case-media .ba-img,
+.case-media .ba-after-wrap {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
+.case-thumbs {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-top: 4px !important;
+}
+
+.case-thumb-track {
+  display: flex !important;
+  gap: 12px !important;
+  overflow-x: auto !important;
+  padding: 4px 2px !important;
+}
+
+.case-thumb {
+  width: 90px !important;
+  height: 65px !important;
+  flex-shrink: 0 !important;
+  border-radius: var(--radius-sm, 8px) !important;
+  overflow: hidden !important;
+  border: 2px solid transparent !important;
+  padding: 0 !important;
+  background: #0f172a !important;
+  cursor: pointer !important;
+  transition: transform 0.2s ease, border-color 0.2s ease !important;
+}
+
+.case-thumb.is-active,
+.case-thumb:hover {
+  border-color: var(--accent, #e05e1b) !important;
+  transform: translateY(-2px) !important;
+}
+
+.case-thumb img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+@media (max-width: 1024px) {
+  .case-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .case-media .p-card-media {
+    height: 340px !important;
+    min-height: 340px !important;
+  }
+}
+
+/* ==========================================================================
+   MOBILE HAMBURGER MENU HEADER & CLOSE BUTTON
+   ========================================================================== */
+.mobile-panel-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding-bottom: 16px !important;
+  margin-bottom: 12px !important;
+  border-bottom: 1px solid var(--border, rgba(255, 255, 255, 0.1)) !important;
+}
+
+[data-theme="light"] .mobile-panel-header {
+  border-bottom-color: #f1f5f9 !important;
+}
+
+.mobile-close-btn {
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.15)) !important;
+  color: var(--text, #ffffff) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: background 0.2s ease, transform 0.2s ease !important;
+}
+
+.mobile-close-btn:hover {
+  background: rgba(224, 94, 27, 0.2) !important;
+  color: var(--accent, #e05e1b) !important;
+  transform: scale(1.05) !important;
+}
+
+.mobile-close-btn svg {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+/* ==========================================================================
+   TABLET (<= 1024px) FOOTER 2x2 BALANCED GRID RESPONSIVE FIX
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .site-footer {
+    padding: 56px 0 0 !important;
+  }
+
+  .footer-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 40px 32px !important;
+    padding-bottom: 44px !important;
+  }
+
+  .footer-brand {
+    grid-column: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .footer-brand p {
+    max-width: 100% !important;
+    text-align: left !important;
+  }
+
+  .footer-brand .footer-social {
+    justify-content: flex-start !important;
+  }
+
+  .footer-col {
+    text-align: left !important;
+  }
+
+  .footer-col:last-child {
+    grid-column: auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    justify-self: stretch !important;
+    text-align: left !important;
+    margin-top: 0 !important;
+  }
+
+  .footer-col:last-child .footer-contact-item {
+    justify-content: flex-start !important;
+  }
+
+  .footer-bottom {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    text-align: left !important;
+    gap: 16px !important;
+  }
+
+  .footer-bottom-links {
+    justify-content: flex-end !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .footer-brand {
+    text-align: left !important;
+    align-items: flex-start !important;
+  }
+  .footer-brand p {
+    text-align: left !important;
+  }
+  .footer-brand .footer-social {
+    justify-content: flex-start !important;
+  }
+  .footer-col {
+    text-align: left !important;
+  }
+  .footer-col ul {
+    align-items: flex-start !important;
+  }
+  .footer-col:last-child {
+    text-align: left !important;
+  }
+  .footer-col:last-child .footer-contact-item {
+    justify-content: flex-start !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    gap: 12px !important;
+  }
+}
+
+/* ==========================================================================
+   HOME 2 PROBLEM TILES EQUAL IMAGE SIZE & LEFTOVER CARD CENTERING
+   ========================================================================== */
+.prob-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 320px !important;
+  width: 100% !important;
+  border-radius: var(--radius-md, 14px) !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.prob-media,
+.prob-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+@media (max-width: 1024px) {
+  .prob-grid,
+  .problems-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  .prob-card {
+    height: 280px !important;
+    min-height: 280px !important;
+  }
+
+  /* Center the 5th leftover problem card in 2-column layout */
+  .prob-card:nth-child(5):last-child,
+  .problems-grid > *:nth-child(5):last-child,
+  .prob-grid > *:nth-child(5):last-child {
+    grid-column: 1 / -1 !important;
+    max-width: 520px !important;
+    width: 100% !important;
+    justify-self: center !important;
+  }
+
+  /* Center single leftover cards in 2-column grids */
+  .visit-guide-grid > *:last-child:nth-child(odd),
+  .home2-visit-grid > *:last-child:nth-child(odd),
+  .archive-grid > *:last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+    max-width: 480px !important;
+    width: 100% !important;
+    justify-self: center !important;
+  }
+}
+
+
+
+

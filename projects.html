@@ -51,6 +51,15 @@
 
 <!-- Mobile panel -->
 <div class="mobile-panel" id="mobilePanel" data-nav-overlay>
+  <div class="mobile-panel-header">
+    <a href="index.html" class="brand" aria-label="PaintPro">
+      <img src="Assets/Logo.png" alt="PaintPro Logo" class="brand-logo-img">
+      <span class="brand-name">Paint<em>Pro</em></span>
+    </a>
+    <button class="mobile-close-btn" data-menu-close aria-label="Close menu" onclick="toggleMobileMenu(event)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
   <div class="mobile-nav-links">
     <a href="index.html">Home</a>
     <a href="home-2.html">Home 2</a>
@@ -126,8 +135,8 @@
       <article class="p-card reveal" data-size="large" data-category="Interior">
         <div class="p-card-media" data-ba>
           <div class="ba-slider">
-            <img class="ba-img ba-before" src="https://images.unsplash.com/photo-1646592474103-cfd22d1d9e34?w=1000&q=80&auto=format&fit=crop" alt="Modern Minimal Apartment before repainting">
-            <img class="ba-img ba-after" src="https://images.unsplash.com/photo-1646592474103-cfd22d1d9e34?w=1000&q=80&auto=format&fit=crop" alt="Modern Minimal Apartment after repainting">
+            <img class="ba-img ba-before" src="Assets/Projects/01.jpg" alt="Modern Minimal Apartment before repainting">
+            <img class="ba-img ba-after" src="Assets/Projects/01.jpg" alt="Modern Minimal Apartment after repainting">
           </div>
           <span class="ba-badge before">Before</span>
           <span class="ba-badge after">After</span>
@@ -256,8 +265,8 @@
       <div class="case-media">
         <div class="p-card-media" data-ba data-case-ba>
           <div class="ba-slider">
-            <img class="ba-img ba-before" src="https://images.unsplash.com/photo-1646592474103-cfd22d1d9e34?w=1400&q=80&auto=format&fit=crop" alt="Apartment living room before renovation, bare walls and unfinished surface">
-            <img class="ba-img ba-after" src="https://images.unsplash.com/photo-1750639258774-9a714379a093?w=1400&q=80&auto=format&fit=crop" alt="Apartment living room after renovation, refined neutral finish">
+            <img class="ba-img ba-before" src="Assets/Projects/01.jpg" alt="Apartment living room before renovation, bare walls and unfinished surface">
+            <img class="ba-img ba-after" src="Assets/Projects/apt_option1.jpg" alt="Apartment living room after renovation, refined neutral finish">
           </div>
           <span class="ba-badge before">Before</span>
           <span class="ba-badge after">After</span>
@@ -269,29 +278,24 @@
           <button class="case-thumb-nav" data-case-prev aria-label="Scroll thumbnails left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button>
           <div class="case-thumb-track" data-case-track>
             <button class="case-thumb is-active" data-case-thumb
-              data-before="https://images.unsplash.com/photo-1646592474103-cfd22d1d9e34?w=300&q=70&auto=format&fit=crop"
-              data-after="https://images.unsplash.com/photo-1750639258774-9a714379a093?w=300&q=70&auto=format&fit=crop">
-              <img src="https://images.unsplash.com/photo-1750639258774-9a714379a093?w=200&q=60&auto=format&fit=crop" alt="Modern Minimal Apartment thumbnail">
+              data-before="Assets/Projects/01.jpg"
+              data-after="Assets/Projects/apt_option1.jpg">
+              <img src="Assets/Projects/apt_option1.jpg" alt="Option 1: Living Room Finish">
             </button>
             <button class="case-thumb" data-case-thumb
-              data-before="https://images.unsplash.com/photo-1721815693498-cc28507c0ba2?w=300&q=70&auto=format&fit=crop"
-              data-after="https://images.unsplash.com/photo-1721815693498-cc28507c0ba2?w=300&q=70&auto=format&fit=crop">
-              <img src="https://images.unsplash.com/photo-1721815693498-cc28507c0ba2?w=200&q=60&auto=format&fit=crop" alt="Contemporary Bungalow thumbnail">
+              data-before="Assets/Projects/01.jpg"
+              data-after="Assets/Projects/apt_option2.jpg">
+              <img src="Assets/Projects/apt_option2.jpg" alt="Option 2: Master Bedroom Finish">
             </button>
             <button class="case-thumb" data-case-thumb
-              data-before="https://images.unsplash.com/photo-1564958068211-fc2c7f56167a?w=300&q=70&auto=format&fit=crop"
-              data-after="https://images.unsplash.com/photo-1564958068211-fc2c7f56167a?w=300&q=70&auto=format&fit=crop">
-              <img src="https://images.unsplash.com/photo-1564958068211-fc2c7f56167a?w=200&q=60&auto=format&fit=crop" alt="Terrace Waterproofing thumbnail">
+              data-before="Assets/Projects/01.jpg"
+              data-after="Assets/Projects/apt_option3.jpg">
+              <img src="Assets/Projects/apt_option3.jpg" alt="Option 3: Dining Alcove Finish">
             </button>
             <button class="case-thumb" data-case-thumb
-              data-before="https://images.unsplash.com/photo-1520587393050-c5298e1a8486?w=300&q=70&auto=format&fit=crop"
-              data-after="https://images.unsplash.com/photo-1520587393050-c5298e1a8486?w=300&q=70&auto=format&fit=crop">
-              <img src="https://images.unsplash.com/photo-1520587393050-c5298e1a8486?w=200&q=60&auto=format&fit=crop" alt="Duplex Interior Makeover thumbnail">
-            </button>
-            <button class="case-thumb" data-case-thumb
-              data-before="https://images.unsplash.com/photo-1760044280686-c5bf1edf3cbb?w=300&q=70&auto=format&fit=crop"
-              data-after="https://images.unsplash.com/photo-1760044280686-c5bf1edf3cbb?w=300&q=70&auto=format&fit=crop">
-              <img src="https://images.unsplash.com/photo-1760044280686-c5bf1edf3cbb?w=200&q=60&auto=format&fit=crop" alt="Heritage Building Revival thumbnail">
+              data-before="Assets/Projects/01.jpg"
+              data-after="Assets/Home/mord1.jpg">
+              <img src="Assets/Home/mord1.jpg" alt="Option 4: Foyer &amp; Hallway Finish">
             </button>
           </div>
           <button class="case-thumb-nav" data-case-next aria-label="Scroll thumbnails right"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
@@ -310,17 +314,17 @@
     </div>
     <div class="story-grid">
       <div class="story-stage reveal">
-        <div class="story-media"><img src="https://images.unsplash.com/photo-1646592474103-cfd22d1d9e34?w=800&q=80&auto=format&fit=crop" alt="Bare walls before the apartment project began"></div>
+        <div class="story-media"><img src="Assets/Projects/01.jpg" alt="Bare walls before the apartment project began"></div>
         <span class="story-tag">Before</span>
         <p class="story-copy">The apartment arrived bare — uneven walls, patchy plaster and no consistent tone from room to room.</p>
       </div>
       <div class="story-stage reveal">
-        <div class="story-media"><img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&q=80&auto=format&fit=crop" alt="Surface preparation and priming during the project"></div>
+        <div class="story-media"><img src="Assets/Projects/apt_option3.jpg" alt="Surface preparation and priming during the project"></div>
         <span class="story-tag">The Work</span>
         <p class="story-copy">Every surface was filled, sanded and primed before three coats of a premium neutral finish were applied by hand.</p>
       </div>
       <div class="story-stage reveal">
-        <div class="story-media"><img src="https://images.unsplash.com/photo-1750639258774-9a714379a093?w=800&q=80&auto=format&fit=crop" alt="Finished living room after the project"></div>
+        <div class="story-media"><img src="Assets/Projects/apt_option1.jpg" alt="Finished living room after the project"></div>
         <span class="story-tag">After</span>
         <p class="story-copy">A calm, uniform interior with a flawless finish — ready to hand over, clean and complete.</p>
       </div>
