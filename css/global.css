@@ -13999,6 +13999,7 @@ footer.site-footer {
     width: 100% !important;
     justify-self: center !important;
   }
+}
 
   /* ==========================================================================
    CONTACT PAGE — SERVICE FOOTPRINT & GOOGLE MAP SECTION
@@ -14138,36 +14139,68 @@ footer.site-footer {
   }
 
   /* ==========================================================================
-   RTL MODE COMPREHENSIVE FIXES FOR AUTH PAGES
+   GLOBAL RTL MODE FORM INPUT & PHONE NUMBER STYLING
    ========================================================================== */
   html[dir="rtl"] body,
-  html[dir="rtl"] .auth-page-wrap {
+  html[dir="rtl"] .auth-page-wrap,
+  [dir="rtl"] body {
     direction: rtl !important;
     text-align: right !important;
   }
 
-  html[dir="rtl"] .auth-field label {
+  html[dir="rtl"] .auth-field label,
+  [dir="rtl"] label {
     text-align: right !important;
     display: block !important;
   }
 
+  html[dir="rtl"] input,
+  html[dir="rtl"] select,
+  html[dir="rtl"] textarea,
+  html[dir="rtl"] .form-control,
+  html[dir="rtl"] .form-control-custom,
   html[dir="rtl"] .auth-input,
-  html[dir="rtl"] .auth-input-wrapper input.auth-input,
-  [dir="rtl"] .auth-input,
-  [dir="rtl"] .auth-input-wrapper input.auth-input,
-  [dir="rtl"] input[type="tel"].auth-input {
+  [dir="rtl"] input,
+  [dir="rtl"] select,
+  [dir="rtl"] textarea,
+  [dir="rtl"] .form-control,
+  [dir="rtl"] .form-control-custom,
+  [dir="rtl"] .auth-input {
     direction: rtl !important;
     text-align: right !important;
     unicode-bidi: plaintext !important;
   }
 
+  html[dir="rtl"] input::placeholder,
+  html[dir="rtl"] textarea::placeholder,
+  html[dir="rtl"] .form-control-custom::placeholder,
   html[dir="rtl"] .auth-input::placeholder,
-  html[dir="rtl"] .auth-input-wrapper input.auth-input::placeholder,
-  [dir="rtl"] .auth-input::placeholder,
-  [dir="rtl"] .auth-input-wrapper input.auth-input::placeholder,
-  [dir="rtl"] input[type="tel"].auth-input::placeholder {
+  [dir="rtl"] input::placeholder,
+  [dir="rtl"] textarea::placeholder,
+  [dir="rtl"] .form-control-custom::placeholder,
+  [dir="rtl"] .auth-input::placeholder {
     direction: rtl !important;
     text-align: right !important;
+    unicode-bidi: plaintext !important;
+  }
+
+  html[dir="rtl"] input::-webkit-input-placeholder,
+  html[dir="rtl"] .form-control-custom::-webkit-input-placeholder,
+  html[dir="rtl"] .auth-input::-webkit-input-placeholder,
+  [dir="rtl"] input::-webkit-input-placeholder,
+  [dir="rtl"] .form-control-custom::-webkit-input-placeholder,
+  [dir="rtl"] .auth-input::-webkit-input-placeholder {
+    direction: rtl !important;
+    text-align: right !important;
+  }
+
+  html[dir="rtl"] a[href^="tel"],
+  html[dir="rtl"] .quote-contact-val,
+  [dir="rtl"] a[href^="tel"],
+  [dir="rtl"] .quote-contact-val {
+    direction: ltr !important;
+    display: inline-block !important;
+    unicode-bidi: embed !important;
   }
 
   html[dir="rtl"] .pwd-toggle-btn,
