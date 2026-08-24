@@ -883,6 +883,48 @@ window.toggleMobileMenu = function (e, forceClose) {
     renderMonth("jun");
   }
 
+  /* ---------------- Maintenance Interactive Property Zones ---------------- */
+  function initMaintenanceZones() {
+    var zonesRoot = document.querySelector("[data-mnt-zones]");
+    if (!zonesRoot) return;
+
+    var pins = zonesRoot.querySelectorAll(".mnt-zone-pin");
+    var iconEl = zonesRoot.querySelector("[data-zone-icon]");
+    var nameEl = zonesRoot.querySelector("[data-zone-name]");
+    var watchEl = zonesRoot.querySelector("[data-zone-watch]");
+    var oftenEl = zonesRoot.querySelector("[data-zone-often]");
+    var helpEl = zonesRoot.querySelector("[data-zone-help]");
+
+    function activateZone(pin) {
+      if (!pin) return;
+      pins.forEach(function (p) { p.classList.remove("is-active"); });
+      pin.classList.add("is-active");
+
+      var icon = pin.getAttribute("data-icon");
+      var name = pin.getAttribute("data-name");
+      var watch = pin.getAttribute("data-watch");
+      var often = pin.getAttribute("data-often");
+      var help = pin.getAttribute("data-help");
+
+      if (iconEl && icon) iconEl.innerHTML = icon;
+      if (nameEl && name) nameEl.textContent = name;
+      if (watchEl && watch) watchEl.textContent = watch;
+      if (oftenEl && often) oftenEl.textContent = often;
+      if (helpEl && help) helpEl.textContent = help;
+    }
+
+    pins.forEach(function (pin) {
+      pin.addEventListener("click", function () {
+        activateZone(pin);
+      });
+    });
+
+    var activePin = zonesRoot.querySelector(".mnt-zone-pin.is-active") || pins[0];
+    if (activePin) {
+      activateZone(activePin);
+    }
+  }
+
   /* ---------------- Run All Initializations ---------------- */
   function runAllInit() {
     initTheme();
@@ -899,6 +941,7 @@ window.toggleMobileMenu = function (e, forceClose) {
     initHero2Carousel();
     initStorySlider();
     initMaintenanceCalendar();
+    initMaintenanceZones();
   }
 
   if (document.readyState === "loading") {

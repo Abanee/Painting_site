@@ -14161,3 +14161,59 @@ footer.site-footer {
       justify-content: flex-start !important;
     }
   }
+
+/* ==========================================================================
+   MAINTENANCE PAGE CARE BY AREA ICON & DETAIL BADGE STYLING
+   ========================================================================== */
+.mnt-zone-detail-head {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  margin-bottom: 24px !important;
+  padding-bottom: 18px !important;
+  border-bottom: 1px solid var(--border, rgba(0, 0, 0, 0.08)) !important;
+}
+
+.mnt-zone-detail-head .icon {
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 50% !important;
+  background: var(--accent-dim, rgba(224, 94, 27, 0.12)) !important;
+  border: 1.5px solid var(--accent, #e05e1b) !important;
+  color: var(--accent, #e05e1b) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  box-shadow: 0 4px 14px rgba(224, 94, 27, 0.18) !important;
+  transition: all 0.3s ease !important;
+}
+
+.mnt-zone-detail-head .icon svg {
+  width: 26px !important;
+  height: 26px !important;
+  stroke-width: 2 !important;
+}
+
+.mnt-zone-detail-head h3 {
+  font-family: var(--font-display, 'Fraunces', Georgia, serif) !important;
+  font-size: 26px !important;
+  font-weight: 700 !important;
+  color: var(--text, #0f172a) !important;
+  margin: 0 !important;
+}
+
+[data-theme="dark"] .mnt-zone-detail-head {
+  border-bottom-color: var(--border, #36332f) !important;
+}
+
+[data-theme="dark"] .mnt-zone-detail-head .icon {
+  background: rgba(215, 106, 52, 0.18) !important;
+  border-color: var(--accent, #d76a34) !important;
+  color: var(--accent, #d76a34) !important;
+  box-shadow: 0 4px 16px rgba(215, 106, 52, 0.25) !important;
+}
+
+[data-theme="dark"] .mnt-zone-detail-head h3 {
+  color: var(--text, #f4f0e8) !important;
+}
