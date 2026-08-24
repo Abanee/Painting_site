@@ -680,7 +680,7 @@ window.toggleMobileMenu = function (e, forceClose) {
           "Check balcony railings and metal trim for oxidation"
         ],
         tip: "Early year inspections catch micro-fissures before spring temperature shifts extend them.",
-        img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80&auto=format&fit=crop"
+        img: "Assets/Maintenance/jan.jpg"
       },
       feb: {
         label: "FEB — FEBRUARY",
@@ -693,7 +693,7 @@ window.toggleMobileMenu = function (e, forceClose) {
           "Inspect shade structure mountings"
         ],
         tip: "Spot-cleaning walls with soft microfiber prevents deep stain penetration.",
-        img: "https://images.unsplash.com/photo-1615873968403-89e068629265?w=900&q=80&auto=format&fit=crop"
+        img: "Assets/Maintenance/feb.jpg"
       },
       mar: {
         label: "MAR — MARCH",
@@ -706,7 +706,7 @@ window.toggleMobileMenu = function (e, forceClose) {
           "Clear parapet weep holes and solar panel mounts"
         ],
         tip: "Heat-reflective roof coatings lower internal air conditioning loads during peak summer.",
-        img: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900&q=80&auto=format&fit=crop"
+        img: "Assets/Maintenance/mar.jpg"
       },
       apr: {
         label: "APR — APRIL",
@@ -719,7 +719,7 @@ window.toggleMobileMenu = function (e, forceClose) {
           "Verify water tank base waterproofing"
         ],
         tip: "Applying a fresh clear UV topcoat onto wooden elements prevents summer sun bleaching.",
-        img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=80&auto=format&fit=crop"
+        img: "Assets/Maintenance/apr.jpg"
       },
       may: {
         label: "MAY — MAY",
@@ -732,7 +732,7 @@ window.toggleMobileMenu = function (e, forceClose) {
           "Test bathroom floor drain waterproofing perimeter"
         ],
         tip: "Fixing small roof cracks before June prevents major ceiling dampness during heavy rains.",
-        img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=900&q=80&auto=format&fit=crop"
+        img: "Assets/Maintenance/may.jpg"
       },
       jun: {
         label: "JUN — JUNE",
@@ -745,7 +745,7 @@ window.toggleMobileMenu = function (e, forceClose) {
           "Visible cracks or surface deterioration"
         ],
         tip: "Clear drainage, check joints and look for early moisture signs before heavy rains.",
-        img: "https://images.unsplash.com/photo-1646592474103-cfd22d1d9e34?w=900&q=80&auto=format&fit=crop"
+        img: "Assets/Maintenance/jun.jpg"
       },
       jul: {
         label: "JUL — JULY",
@@ -758,7 +758,7 @@ window.toggleMobileMenu = function (e, forceClose) {
           "Inspect basement sump pumps & wall seam dampness"
         ],
         tip: "If wet patches appear on interior ceilings, notify PaintPro for quick targeted sealing.",
-        img: "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=900&q=80&auto=format&fit=crop"
+        img: "Assets/Maintenance/jul.jpg"
       },
       aug: {
         label: "AUG — AUGUST",
@@ -771,7 +771,7 @@ window.toggleMobileMenu = function (e, forceClose) {
           "Check anti-fungal paint performance in humid zones"
         ],
         tip: "Good cross-ventilation in interior rooms prevents seasonal damp odor and mold.",
-        img: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=900&q=80&auto=format&fit=crop"
+        img: "Assets/Maintenance/aug.jpg"
       },
       sep: {
         label: "SEP — SEPTEMBER",
@@ -784,7 +784,7 @@ window.toggleMobileMenu = function (e, forceClose) {
           "Clean out organic moss & algae from damp corners"
         ],
         tip: "Allow walls to dry thoroughly before applying any touch-up paint coats.",
-        img: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900&q=80&auto=format&fit=crop"
+        img: "Assets/Maintenance/sep.jpg"
       },
       oct: {
         label: "OCT — OCTOBER",
@@ -797,7 +797,7 @@ window.toggleMobileMenu = function (e, forceClose) {
           "Pressure-wash exterior stone cladding and paved walkways"
         ],
         tip: "A quick festive touch-up coat brings back initial handover brilliance with minimal effort.",
-        img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900&q=80&auto=format&fit=crop"
+        img: "Assets/Maintenance/oct.jpg"
       },
       nov: {
         label: "NOV — NOVEMBER",
@@ -810,7 +810,7 @@ window.toggleMobileMenu = function (e, forceClose) {
           "Clean light fixtures and ceiling paint moldings"
         ],
         tip: "Dry autumn weather is ideal for masonry hydrophobic sealers to absorb deeply.",
-        img: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=900&q=80&auto=format&fit=crop"
+        img: "Assets/Maintenance/nov.jpg"
       },
       dec: {
         label: "DEC — DECEMBER",
@@ -823,7 +823,7 @@ window.toggleMobileMenu = function (e, forceClose) {
           "Verify all exterior drainage channels remain free of debris"
         ],
         tip: "Annual inspection log updates ensure continuous coverage under PaintPro warranty.",
-        img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&q=80&auto=format&fit=crop"
+        img: "Assets/Maintenance/dec.jpg"
       }
     };
 
