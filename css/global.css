@@ -8955,3 +8955,19 @@ footer.site-footer {
     font-size: 24px !important;
   }
 }
+
+/* ==========================================================================
+   AUTH FORM INPUT PADDING & ICON REMOVAL FIX
+   ========================================================================== */
+.auth-input {
+  padding-left: 16px !important;
+}
+
+.auth-badge {
+  display: none !important;
+}
+
+.field-icon {
+  display: none !important;
+}
+

@@ -23,7 +23,6 @@
           <img src="Assets/Logo.png" alt="PaintPro Logo" class="auth-logo-img">
           <span class="brand-name">Paint<em>Pro</em></span>
         </a>
-        <div class="auth-badge">Client &amp; Contractor Portal</div>
         <h1 class="auth-title">Welcome Back</h1>
         <p class="auth-subtitle">Sign in to manage inspections, track project timelines &amp; access warranty documents.</p>
       </div>
@@ -33,18 +32,13 @@
         <div class="auth-field">
           <label for="loginEmail">Email Address</label>
           <div class="auth-input-wrapper">
-            <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
             <input type="email" id="loginEmail" class="auth-input" placeholder="name@company.com" required autocomplete="email">
           </div>
         </div>
 
         <div class="auth-field">
-          <div class="auth-row-between">
-            <label for="loginPassword">Password</label>
-            <a href="contact.html" class="auth-link">Forgot password?</a>
-          </div>
+          <label for="loginPassword">Password</label>
           <div class="auth-input-wrapper">
-            <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             <input type="password" id="loginPassword" class="auth-input" placeholder="••••••••••••" required autocomplete="current-password">
             <button type="button" class="pwd-toggle-btn" data-pwd-toggle aria-label="Toggle password visibility">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -52,11 +46,12 @@
           </div>
         </div>
 
-        <div class="auth-row-between" style="margin: 2px 0 6px;">
+        <div class="auth-row-between" style="margin: 12px 0 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
           <label class="auth-checkbox-label">
             <input type="checkbox" checked>
             <span>Remember my session</span>
           </label>
+          <a href="contact.html" class="auth-link">Forgot password?</a>
         </div>
 
         <!-- 1-Click Demo Fill -->
@@ -120,15 +115,6 @@
   </div>
 </main>
 
-<!-- ============ MINIMALIST AUTH FOOTER ============ -->
-<footer class="auth-minimal-footer">
-  <div>
-    <span>&copy; 2026 PaintPro Coatings &amp; Waterproofing Ltd.</span>
-    <a href="about.html">Privacy Policy</a>
-    <a href="about.html">Terms of Service</a>
-    <a href="contact.html">Help &amp; Support</a>
-  </div>
-</footer>
 
 <script src="js/global.js"></script>
 </body>
