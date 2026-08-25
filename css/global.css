@@ -6331,8 +6331,9 @@ html[data-theme="dark"] .story-section {
 }
 
 .svc-scope-sticky-wrap {
-  position: sticky;
-  top: 110px;
+  position: relative;
+  top: auto;
+  align-self: center;
   height: fit-content;
 }
 
