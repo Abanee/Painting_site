@@ -7214,10 +7214,9 @@ html[data-theme="dark"] .story-section {
 
 .ab-team-media {
   position: relative;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
-  aspect-ratio: 4/5;
-  height: 320px;
+  height: 380px;
   width: 100%;
 }
 
@@ -7225,7 +7224,7 @@ html[data-theme="dark"] .story-section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 15%;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -7909,8 +7908,23 @@ html[data-theme="dark"] .ab-culture {
     padding: 70px 0;
   }
 
+  #people .section-head {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  #people .section-head .section-sub {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
   .ab-team-media {
-    height: 280px;
+    height: 380px !important;
   }
 
   .ab-timeline-track {
@@ -7937,16 +7951,31 @@ html[data-theme="dark"] .ab-culture {
     font-size: 42px;
   }
 
+  #people .section-head {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  #people .section-head .section-sub {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
   .ab-team-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 24px;
     max-width: 440px;
     margin-left: auto;
     margin-right: auto;
   }
 
   .ab-team-media {
-    height: 320px;
+    height: 380px !important;
   }
 
   .ab-timeline-track {
