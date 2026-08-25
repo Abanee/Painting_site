@@ -1143,6 +1143,7 @@ select {
 .p-card[data-size="tall"] .p-card-media,
 .p-card[data-size="wide"] .p-card-media,
 .p-card[data-size="large"] .p-card-media,
+.p-card[data-size="split"] .p-card-media,
 .p-card[data-size="feature"] .p-card-media {
   aspect-ratio: 16/10 !important;
   height: auto !important;
@@ -11433,6 +11434,32 @@ footer.site-footer {
   margin: 0 auto;
 }
 
+.page-hero-inner .btn-outline,
+.page-hero-ctas .btn-outline,
+.page-hero-actions .btn-outline,
+.page-centered-hero .btn-outline,
+[data-theme="light"] .page-hero-inner .btn-outline,
+[data-theme="light"] .page-hero-ctas .btn-outline,
+[data-theme="light"] .page-hero-actions .btn-outline,
+[data-theme="light"] .page-centered-hero .btn-outline {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.page-hero-inner .btn-outline:hover,
+.page-hero-ctas .btn-outline:hover,
+.page-hero-actions .btn-outline:hover,
+.page-centered-hero .btn-outline:hover,
+[data-theme="light"] .page-hero-inner .btn-outline:hover,
+[data-theme="light"] .page-hero-ctas .btn-outline:hover,
+[data-theme="light"] .page-hero-actions .btn-outline:hover,
+[data-theme="light"] .page-centered-hero .btn-outline:hover {
+  color: #ffffff !important;
+  border-color: #e05e1b !important;
+  background: rgba(224, 94, 27, 0.3) !important;
+}
+
 .page-hero-tagline {
   margin-top: 24px;
   font-family: 'JetBrains Mono', monospace;
@@ -12809,7 +12836,8 @@ footer.site-footer {
   }
 
   .p-card-media {
-    height: 220px !important;
+    height: 360px !important;
+    aspect-ratio: 16/10 !important;
   }
 
   .mnt-calendar-panel {
