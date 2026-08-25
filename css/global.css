@@ -4979,10 +4979,13 @@ html[data-theme="dark"] .story-section {
     aspect-ratio: 3/4;
   }
 
-  .colour-card:nth-child(3) {
-    grid-column: 1 / -1;
-    max-width: calc(50% - 10px);
-    justify-self: center;
+  .colour-card:nth-child(3),
+  .colour-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+    max-width: calc(50% - 10px) !important;
+    justify-self: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   .protection-grid {
@@ -6315,8 +6318,105 @@ html[data-theme="dark"] .story-section {
 }
 
 /* ---------- Scope sequence ---------- */
+.svc-scope-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
 .svc-scope-track {
   position: relative;
+}
+
+.svc-scope-sticky-wrap {
+  position: sticky;
+  top: 110px;
+  height: fit-content;
+}
+
+.svc-scope-sticky-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md, 0 16px 36px rgba(0, 0, 0, 0.08));
+}
+
+.svc-scope-sticky-card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+
+.svc-scope-sticky-caption {
+  padding: 24px 28px;
+  background: var(--surface);
+}
+
+.svc-scope-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(224, 94, 27, 0.12);
+  border: 1px solid rgba(224, 94, 27, 0.25);
+  padding: 4px 12px;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.svc-scope-sticky-caption b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.svc-scope-sticky-caption p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .svc-scope-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 820px) {
+  .svc-scope-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .svc-scope-sticky-wrap {
+    position: static;
+  }
+}
+
+@media (max-width: 360px) {
+  .svc-scope-step {
+    grid-template-columns: 44px 1fr;
+    gap: 16px;
+    padding: 18px 0;
+  }
+  .svc-scope-num {
+    width: 44px;
+    height: 44px;
+    font-size: 12.5px;
+  }
+  .svc-scope-sticky-caption {
+    padding: 16px;
+  }
 }
 
 .svc-scope-line {
@@ -8419,8 +8519,8 @@ html[data-theme="dark"] .ab-culture {
 .mnt-calendar-panel {
   margin-top: 36px;
   display: grid;
-  grid-template-columns: 1fr 1.2fr auto;
-  gap: 36px;
+  grid-template-columns: 300px 1fr 280px;
+  gap: 28px;
   align-items: stretch;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -8497,15 +8597,15 @@ html[data-theme="dark"] .ab-culture {
 }
 
 .mnt-tip {
-  background: var(--surface);
+  background: var(--surface-2, rgba(0, 0, 0, 0.03));
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  padding: 20px;
+  padding: 22px;
   display: flex;
   flex-direction: column;
   gap: 14px;
   justify-content: space-between;
-  min-width: 220px;
+  width: 100%;
 }
 
 .mnt-tip-head {
@@ -8563,14 +8663,14 @@ html[data-theme="dark"] .ab-culture {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 40px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .mnt-zones-media {
   position: relative;
   border-radius: var(--radius-sm);
   overflow: hidden;
-  aspect-ratio: 5/4.4;
+  aspect-ratio: 16/11;
   box-shadow: var(--shadow-sm);
 }
 
@@ -8623,11 +8723,12 @@ html[data-theme="dark"] .ab-culture {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  padding: 30px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
-  gap: 22px;
-  min-height: 100%;
+  gap: 18px;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .mnt-zone-detail-head {
@@ -10222,7 +10323,7 @@ html[data-theme="dark"] .ab-culture {
 /* Third-Party Social Auth */
 .social-auth-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 12px;
   margin-top: 18px;
   margin-bottom: 20px;
