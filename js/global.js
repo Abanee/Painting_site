@@ -925,6 +925,37 @@ window.toggleMobileMenu = function (e, forceClose) {
     }
   }
 
+  /* ---------------- Surface Diagnosis Hotspots ---------------- */
+  function initDiagnosisHotspots() {
+    var hotspots = document.querySelectorAll("[data-hotspot]");
+    var titleEl = document.querySelector("[data-diagnosis-title]");
+    var causeEl = document.querySelector("[data-diagnosis-cause]");
+    var fixEl = document.querySelector("[data-diagnosis-fix]");
+
+    if (!hotspots.length) return;
+
+    function activateHotspot(btn) {
+      if (!btn) return;
+      hotspots.forEach(function (h) { h.classList.remove("is-active"); });
+      btn.classList.add("is-active");
+
+      var title = btn.getAttribute("data-title");
+      var cause = btn.getAttribute("data-cause");
+      var fix = btn.getAttribute("data-fix");
+
+      if (titleEl && title) titleEl.textContent = title;
+      if (causeEl && cause) causeEl.textContent = cause;
+      if (fixEl && fix) fixEl.textContent = fix;
+    }
+
+    hotspots.forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        activateHotspot(btn);
+      });
+    });
+  }
+
   /* ---------------- Run All Initializations ---------------- */
   function runAllInit() {
     initTheme();
@@ -942,6 +973,7 @@ window.toggleMobileMenu = function (e, forceClose) {
     initStorySlider();
     initMaintenanceCalendar();
     initMaintenanceZones();
+    initDiagnosisHotspots();
   }
 
   if (document.readyState === "loading") {
