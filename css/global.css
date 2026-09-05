@@ -6088,6 +6088,7 @@ html[data-theme="dark"] .story-section {
   gap: 10px;
   margin-bottom: 40px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .svc-tab {
@@ -9136,6 +9137,8 @@ html[data-theme="dark"] .ab-culture {
   min-height: 64vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
   overflow: hidden;
   margin-bottom: 64px;
 }
@@ -9162,10 +9165,12 @@ html[data-theme="dark"] .ab-culture {
   position: relative;
   z-index: 2;
   padding: 100px 0;
+  width: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .mnt-final h2 {
